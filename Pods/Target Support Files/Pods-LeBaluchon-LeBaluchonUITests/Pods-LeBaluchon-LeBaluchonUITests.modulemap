@@ -1,0 +1,6 @@
+framework module Pods_LeBaluchon_LeBaluchonUITests {
+  umbrella header "Pods-LeBaluchon-LeBaluchonUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
