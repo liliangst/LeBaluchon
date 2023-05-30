@@ -7,18 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07756FFEA30010168FF3D260 /* Pods_LeBaluchon_LeBaluchonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E334904C7B76DA0AF8C9F3FD /* Pods_LeBaluchon_LeBaluchonUITests.framework */; };
-		2717CE936C6E0F29C953CC54 /* Pods_LeBaluchon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A32F387AA0A83F200C1E54D /* Pods_LeBaluchon.framework */; };
 		38E788ED2A1F97F8003C8A57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E788EC2A1F97F8003C8A57 /* AppDelegate.swift */; };
 		38E788EF2A1F97F8003C8A57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E788EE2A1F97F8003C8A57 /* SceneDelegate.swift */; };
-		38E788F12A1F97F8003C8A57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E788F02A1F97F8003C8A57 /* ViewController.swift */; };
+		38E788F12A1F97F8003C8A57 /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E788F02A1F97F8003C8A57 /* ConversionViewController.swift */; };
 		38E788F42A1F97F8003C8A57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E788F22A1F97F8003C8A57 /* Main.storyboard */; };
 		38E788F62A1F97F9003C8A57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E788F52A1F97F9003C8A57 /* Assets.xcassets */; };
 		38E788F92A1F97F9003C8A57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E788F72A1F97F9003C8A57 /* LaunchScreen.storyboard */; };
 		38E789042A1F97F9003C8A57 /* LeBaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E789032A1F97F9003C8A57 /* LeBaluchonTests.swift */; };
 		38E7890E2A1F97F9003C8A57 /* LeBaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7890D2A1F97F9003C8A57 /* LeBaluchonUITests.swift */; };
 		38E789102A1F97F9003C8A57 /* LeBaluchonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7890F2A1F97F9003C8A57 /* LeBaluchonUITestsLaunchTests.swift */; };
-		5591AA7F859A9183F1E05240 /* Pods_LeBaluchonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E782799E48E77BDFC6A1A06D /* Pods_LeBaluchonTests.framework */; };
+		38E789692A25F0F3003C8A57 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E789682A25F0F3003C8A57 /* TranslationViewController.swift */; };
+		38E7896B2A25F100003C8A57 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7896A2A25F100003C8A57 /* WeatherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +42,7 @@
 		38E788E92A1F97F8003C8A57 /* LeBaluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeBaluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E788EC2A1F97F8003C8A57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38E788EE2A1F97F8003C8A57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		38E788F02A1F97F8003C8A57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		38E788F02A1F97F8003C8A57 /* ConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
 		38E788F32A1F97F8003C8A57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38E788F52A1F97F9003C8A57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38E788F82A1F97F9003C8A57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,14 +52,11 @@
 		38E789092A1F97F9003C8A57 /* LeBaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeBaluchonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E7890D2A1F97F9003C8A57 /* LeBaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeBaluchonUITests.swift; sourceTree = "<group>"; };
 		38E7890F2A1F97F9003C8A57 /* LeBaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeBaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		3A32F387AA0A83F200C1E54D /* Pods_LeBaluchon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeBaluchon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		557D2FA353A82259F3654F85 /* Pods-LeBaluchon-LeBaluchonUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchon-LeBaluchonUITests.debug.xcconfig"; path = "Target Support Files/Pods-LeBaluchon-LeBaluchonUITests/Pods-LeBaluchon-LeBaluchonUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		38E789682A25F0F3003C8A57 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		38E7896A2A25F100003C8A57 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		D649B80AA59DA7E6C487BFB6 /* Pods-LeBaluchon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchon.debug.xcconfig"; path = "Target Support Files/Pods-LeBaluchon/Pods-LeBaluchon.debug.xcconfig"; sourceTree = "<group>"; };
-		E334904C7B76DA0AF8C9F3FD /* Pods_LeBaluchon_LeBaluchonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeBaluchon_LeBaluchonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C76C581FDB5FF840EDA7D5 /* Pods-LeBaluchonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchonTests.release.xcconfig"; path = "Target Support Files/Pods-LeBaluchonTests/Pods-LeBaluchonTests.release.xcconfig"; sourceTree = "<group>"; };
-		E782799E48E77BDFC6A1A06D /* Pods_LeBaluchonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeBaluchonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF508E53222BFD5137FBBBA7 /* Pods-LeBaluchonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchonTests.debug.xcconfig"; path = "Target Support Files/Pods-LeBaluchonTests/Pods-LeBaluchonTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FA2DED44CDA3EF8F62AFA432 /* Pods-LeBaluchon-LeBaluchonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchon-LeBaluchonUITests.release.xcconfig"; path = "Target Support Files/Pods-LeBaluchon-LeBaluchonUITests/Pods-LeBaluchon-LeBaluchonUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2717CE936C6E0F29C953CC54 /* Pods_LeBaluchon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5591AA7F859A9183F1E05240 /* Pods_LeBaluchonTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07756FFEA30010168FF3D260 /* Pods_LeBaluchon_LeBaluchonUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,8 +89,6 @@
 			children = (
 				D649B80AA59DA7E6C487BFB6 /* Pods-LeBaluchon.debug.xcconfig */,
 				2B28922A29E69B5B9D962B05 /* Pods-LeBaluchon.release.xcconfig */,
-				557D2FA353A82259F3654F85 /* Pods-LeBaluchon-LeBaluchonUITests.debug.xcconfig */,
-				FA2DED44CDA3EF8F62AFA432 /* Pods-LeBaluchon-LeBaluchonUITests.release.xcconfig */,
 				EF508E53222BFD5137FBBBA7 /* Pods-LeBaluchonTests.debug.xcconfig */,
 				E6C76C581FDB5FF840EDA7D5 /* Pods-LeBaluchonTests.release.xcconfig */,
 			);
@@ -129,6 +120,7 @@
 		38E788EB2A1F97F8003C8A57 /* LeBaluchon */ = {
 			isa = PBXGroup;
 			children = (
+				38E788FA2A1F97F9003C8A57 /* Info.plist */,
 				38E7891C2A1F9815003C8A57 /* Model */,
 				38E7891D2A1F981B003C8A57 /* View */,
 				38E7891E2A1F9890003C8A57 /* Controller */,
@@ -173,7 +165,9 @@
 		38E7891E2A1F9890003C8A57 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				38E788F02A1F97F8003C8A57 /* ViewController.swift */,
+				38E788F02A1F97F8003C8A57 /* ConversionViewController.swift */,
+				38E789682A25F0F3003C8A57 /* TranslationViewController.swift */,
+				38E7896A2A25F100003C8A57 /* WeatherViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -192,7 +186,6 @@
 				38E788EE2A1F97F8003C8A57 /* SceneDelegate.swift */,
 				38E788F52A1F97F9003C8A57 /* Assets.xcassets */,
 				38E788F72A1F97F9003C8A57 /* LaunchScreen.storyboard */,
-				38E788FA2A1F97F9003C8A57 /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -200,9 +193,6 @@
 		A2E54656DC1B2581B7E44777 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A32F387AA0A83F200C1E54D /* Pods_LeBaluchon.framework */,
-				E334904C7B76DA0AF8C9F3FD /* Pods_LeBaluchon_LeBaluchonUITests.framework */,
-				E782799E48E77BDFC6A1A06D /* Pods_LeBaluchonTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -251,7 +241,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38E789192A1F97F9003C8A57 /* Build configuration list for PBXNativeTarget "LeBaluchonUITests" */;
 			buildPhases = (
-				DD57739628CAE92DA592719A /* [CP] Check Pods Manifest.lock */,
 				38E789052A1F97F9003C8A57 /* Sources */,
 				38E789062A1F97F9003C8A57 /* Frameworks */,
 				38E789072A1F97F9003C8A57 /* Resources */,
@@ -359,28 +348,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD57739628CAE92DA592719A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LeBaluchon-LeBaluchonUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FF0CAEF134C8311574D2B685 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -410,7 +377,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38E788F12A1F97F8003C8A57 /* ViewController.swift in Sources */,
+				38E789692A25F0F3003C8A57 /* TranslationViewController.swift in Sources */,
+				38E7896B2A25F100003C8A57 /* WeatherViewController.swift in Sources */,
+				38E788F12A1F97F8003C8A57 /* ConversionViewController.swift in Sources */,
 				38E788ED2A1F97F8003C8A57 /* AppDelegate.swift in Sources */,
 				38E788EF2A1F97F8003C8A57 /* SceneDelegate.swift in Sources */,
 			);
@@ -593,6 +562,8 @@
 				DEVELOPMENT_TEAM = VZ899C4D4A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LeBaluchon/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LeBaluchon;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -622,6 +593,8 @@
 				DEVELOPMENT_TEAM = VZ899C4D4A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LeBaluchon/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LeBaluchon;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -684,7 +657,6 @@
 		};
 		38E7891A2A1F97F9003C8A57 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 557D2FA353A82259F3654F85 /* Pods-LeBaluchon-LeBaluchonUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -703,7 +675,6 @@
 		};
 		38E7891B2A1F97F9003C8A57 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA2DED44CDA3EF8F62AFA432 /* Pods-LeBaluchon-LeBaluchonUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

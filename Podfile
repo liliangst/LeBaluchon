@@ -12,8 +12,4 @@ target 'LeBaluchon' do
     # Pods for testing
   end
 
-  target 'LeBaluchonUITests' do
-    # Pods for testing
-  end
-
 end
