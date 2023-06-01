@@ -7,17 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		249856DB8B65DC8A84C16FFF /* Pods_LeBaluchonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF9E793913601AE19AE5594 /* Pods_LeBaluchonTests.framework */; };
 		38E788ED2A1F97F8003C8A57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E788EC2A1F97F8003C8A57 /* AppDelegate.swift */; };
 		38E788EF2A1F97F8003C8A57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E788EE2A1F97F8003C8A57 /* SceneDelegate.swift */; };
 		38E788F12A1F97F8003C8A57 /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E788F02A1F97F8003C8A57 /* ConversionViewController.swift */; };
 		38E788F42A1F97F8003C8A57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E788F22A1F97F8003C8A57 /* Main.storyboard */; };
 		38E788F62A1F97F9003C8A57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E788F52A1F97F9003C8A57 /* Assets.xcassets */; };
 		38E788F92A1F97F9003C8A57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E788F72A1F97F9003C8A57 /* LaunchScreen.storyboard */; };
-		38E789042A1F97F9003C8A57 /* LeBaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E789032A1F97F9003C8A57 /* LeBaluchonTests.swift */; };
-		38E7890E2A1F97F9003C8A57 /* LeBaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7890D2A1F97F9003C8A57 /* LeBaluchonUITests.swift */; };
-		38E789102A1F97F9003C8A57 /* LeBaluchonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7890F2A1F97F9003C8A57 /* LeBaluchonUITestsLaunchTests.swift */; };
+		38E789042A1F97F9003C8A57 /* ConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E789032A1F97F9003C8A57 /* ConversionTests.swift */; };
 		38E789692A25F0F3003C8A57 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E789682A25F0F3003C8A57 /* TranslationViewController.swift */; };
 		38E7896B2A25F100003C8A57 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7896A2A25F100003C8A57 /* WeatherViewController.swift */; };
+		38E7896F2A26434E003C8A57 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7896E2A26434E003C8A57 /* Colors.swift */; };
+		38E789762A274E2A003C8A57 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E789752A274E2A003C8A57 /* CurrencyService.swift */; };
+		38E789792A278011003C8A57 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E789782A278011003C8A57 /* Currency.swift */; };
+		38E7897B2A289277003C8A57 /* MoneyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7897A2A289277003C8A57 /* MoneyFormatter.swift */; };
+		38E7897D2A28D0C5003C8A57 /* MoneyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7897C2A28D0C5003C8A57 /* MoneyFormatterTests.swift */; };
+		38E789802A28D761003C8A57 /* Rates.json in Resources */ = {isa = PBXBuildFile; fileRef = 38E7897F2A28D761003C8A57 /* Rates.json */; };
+		38E789822A28E45E003C8A57 /* FakeResponeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E789812A28E45E003C8A57 /* FakeResponeData.swift */; };
+		38E789842A28E6A4003C8A57 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E789832A28E6A4003C8A57 /* URLSessionFake.swift */; };
+		6747A461BCC1B98CD415670D /* Pods_LeBaluchon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363B41954987C8652969D9EE /* Pods_LeBaluchon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,17 +36,11 @@
 			remoteGlobalIDString = 38E788E82A1F97F8003C8A57;
 			remoteInfo = LeBaluchon;
 		};
-		38E7890A2A1F97F9003C8A57 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 38E788E12A1F97F8003C8A57 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 38E788E82A1F97F8003C8A57;
-			remoteInfo = LeBaluchon;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2B28922A29E69B5B9D962B05 /* Pods-LeBaluchon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchon.release.xcconfig"; path = "Target Support Files/Pods-LeBaluchon/Pods-LeBaluchon.release.xcconfig"; sourceTree = "<group>"; };
+		363B41954987C8652969D9EE /* Pods_LeBaluchon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeBaluchon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E788E92A1F97F8003C8A57 /* LeBaluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeBaluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E788EC2A1F97F8003C8A57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38E788EE2A1F97F8003C8A57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,14 +50,20 @@
 		38E788F82A1F97F9003C8A57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38E788FA2A1F97F9003C8A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38E788FF2A1F97F9003C8A57 /* LeBaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeBaluchonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		38E789032A1F97F9003C8A57 /* LeBaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeBaluchonTests.swift; sourceTree = "<group>"; };
-		38E789092A1F97F9003C8A57 /* LeBaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeBaluchonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		38E7890D2A1F97F9003C8A57 /* LeBaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeBaluchonUITests.swift; sourceTree = "<group>"; };
-		38E7890F2A1F97F9003C8A57 /* LeBaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeBaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		38E789032A1F97F9003C8A57 /* ConversionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionTests.swift; sourceTree = "<group>"; };
 		38E789682A25F0F3003C8A57 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		38E7896A2A25F100003C8A57 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		38E7896E2A26434E003C8A57 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		38E789752A274E2A003C8A57 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
+		38E789782A278011003C8A57 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		38E7897A2A289277003C8A57 /* MoneyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyFormatter.swift; sourceTree = "<group>"; };
+		38E7897C2A28D0C5003C8A57 /* MoneyFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyFormatterTests.swift; sourceTree = "<group>"; };
+		38E7897F2A28D761003C8A57 /* Rates.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rates.json; sourceTree = "<group>"; };
+		38E789812A28E45E003C8A57 /* FakeResponeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponeData.swift; sourceTree = "<group>"; };
+		38E789832A28E6A4003C8A57 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		D649B80AA59DA7E6C487BFB6 /* Pods-LeBaluchon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchon.debug.xcconfig"; path = "Target Support Files/Pods-LeBaluchon/Pods-LeBaluchon.debug.xcconfig"; sourceTree = "<group>"; };
 		E6C76C581FDB5FF840EDA7D5 /* Pods-LeBaluchonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchonTests.release.xcconfig"; path = "Target Support Files/Pods-LeBaluchonTests/Pods-LeBaluchonTests.release.xcconfig"; sourceTree = "<group>"; };
+		ECF9E793913601AE19AE5594 /* Pods_LeBaluchonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeBaluchonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF508E53222BFD5137FBBBA7 /* Pods-LeBaluchonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchonTests.debug.xcconfig"; path = "Target Support Files/Pods-LeBaluchonTests/Pods-LeBaluchonTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6747A461BCC1B98CD415670D /* Pods_LeBaluchon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,13 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		38E789062A1F97F9003C8A57 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				249856DB8B65DC8A84C16FFF /* Pods_LeBaluchonTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +103,6 @@
 			children = (
 				38E788EB2A1F97F8003C8A57 /* LeBaluchon */,
 				38E789022A1F97F9003C8A57 /* LeBaluchonTests */,
-				38E7890C2A1F97F9003C8A57 /* LeBaluchonUITests */,
 				38E788EA2A1F97F8003C8A57 /* Products */,
 				23929A77D7948DF160116FB5 /* Pods */,
 				A2E54656DC1B2581B7E44777 /* Frameworks */,
@@ -112,7 +114,6 @@
 			children = (
 				38E788E92A1F97F8003C8A57 /* LeBaluchon.app */,
 				38E788FF2A1F97F9003C8A57 /* LeBaluchonTests.xctest */,
-				38E789092A1F97F9003C8A57 /* LeBaluchonUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,23 +134,17 @@
 		38E789022A1F97F9003C8A57 /* LeBaluchonTests */ = {
 			isa = PBXGroup;
 			children = (
-				38E789032A1F97F9003C8A57 /* LeBaluchonTests.swift */,
+				38E7897E2A28D73B003C8A57 /* Conversion */,
 			);
 			path = LeBaluchonTests;
-			sourceTree = "<group>";
-		};
-		38E7890C2A1F97F9003C8A57 /* LeBaluchonUITests */ = {
-			isa = PBXGroup;
-			children = (
-				38E7890D2A1F97F9003C8A57 /* LeBaluchonUITests.swift */,
-				38E7890F2A1F97F9003C8A57 /* LeBaluchonUITestsLaunchTests.swift */,
-			);
-			path = LeBaluchonUITests;
 			sourceTree = "<group>";
 		};
 		38E7891C2A1F9815003C8A57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				38E789702A265158003C8A57 /* Conversion */,
+				38E789722A265171003C8A57 /* Translation */,
+				38E789712A26516C003C8A57 /* Weather */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +170,8 @@
 		38E7891F2A1F98AA003C8A57 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				38E7896E2A26434E003C8A57 /* Colors.swift */,
+				38E7897A2A289277003C8A57 /* MoneyFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -190,9 +187,46 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		38E789702A265158003C8A57 /* Conversion */ = {
+			isa = PBXGroup;
+			children = (
+				38E789752A274E2A003C8A57 /* CurrencyService.swift */,
+				38E789782A278011003C8A57 /* Currency.swift */,
+			);
+			path = Conversion;
+			sourceTree = "<group>";
+		};
+		38E789712A26516C003C8A57 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		38E789722A265171003C8A57 /* Translation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Translation;
+			sourceTree = "<group>";
+		};
+		38E7897E2A28D73B003C8A57 /* Conversion */ = {
+			isa = PBXGroup;
+			children = (
+				38E789032A1F97F9003C8A57 /* ConversionTests.swift */,
+				38E7897C2A28D0C5003C8A57 /* MoneyFormatterTests.swift */,
+				38E7897F2A28D761003C8A57 /* Rates.json */,
+				38E789812A28E45E003C8A57 /* FakeResponeData.swift */,
+				38E789832A28E6A4003C8A57 /* URLSessionFake.swift */,
+			);
+			path = Conversion;
+			sourceTree = "<group>";
+		};
 		A2E54656DC1B2581B7E44777 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				363B41954987C8652969D9EE /* Pods_LeBaluchon.framework */,
+				ECF9E793913601AE19AE5594 /* Pods_LeBaluchonTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -237,24 +271,6 @@
 			productReference = 38E788FF2A1F97F9003C8A57 /* LeBaluchonTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		38E789082A1F97F9003C8A57 /* LeBaluchonUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 38E789192A1F97F9003C8A57 /* Build configuration list for PBXNativeTarget "LeBaluchonUITests" */;
-			buildPhases = (
-				38E789052A1F97F9003C8A57 /* Sources */,
-				38E789062A1F97F9003C8A57 /* Frameworks */,
-				38E789072A1F97F9003C8A57 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				38E7890B2A1F97F9003C8A57 /* PBXTargetDependency */,
-			);
-			name = LeBaluchonUITests;
-			productName = LeBaluchonUITests;
-			productReference = 38E789092A1F97F9003C8A57 /* LeBaluchonUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -269,10 +285,6 @@
 						CreatedOnToolsVersion = 14.3;
 					};
 					38E788FE2A1F97F9003C8A57 = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = 38E788E82A1F97F8003C8A57;
-					};
-					38E789082A1F97F9003C8A57 = {
 						CreatedOnToolsVersion = 14.3;
 						TestTargetID = 38E788E82A1F97F8003C8A57;
 					};
@@ -293,7 +305,6 @@
 			targets = (
 				38E788E82A1F97F8003C8A57 /* LeBaluchon */,
 				38E788FE2A1F97F9003C8A57 /* LeBaluchonTests */,
-				38E789082A1F97F9003C8A57 /* LeBaluchonUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -313,13 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		38E789072A1F97F9003C8A57 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				38E789802A28D761003C8A57 /* Rates.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,9 +383,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				38E789692A25F0F3003C8A57 /* TranslationViewController.swift in Sources */,
+				38E7896F2A26434E003C8A57 /* Colors.swift in Sources */,
 				38E7896B2A25F100003C8A57 /* WeatherViewController.swift in Sources */,
 				38E788F12A1F97F8003C8A57 /* ConversionViewController.swift in Sources */,
+				38E789792A278011003C8A57 /* Currency.swift in Sources */,
+				38E789762A274E2A003C8A57 /* CurrencyService.swift in Sources */,
 				38E788ED2A1F97F8003C8A57 /* AppDelegate.swift in Sources */,
+				38E7897B2A289277003C8A57 /* MoneyFormatter.swift in Sources */,
 				38E788EF2A1F97F8003C8A57 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,16 +398,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38E789042A1F97F9003C8A57 /* LeBaluchonTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		38E789052A1F97F9003C8A57 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				38E7890E2A1F97F9003C8A57 /* LeBaluchonUITests.swift in Sources */,
-				38E789102A1F97F9003C8A57 /* LeBaluchonUITestsLaunchTests.swift in Sources */,
+				38E789822A28E45E003C8A57 /* FakeResponeData.swift in Sources */,
+				38E789842A28E6A4003C8A57 /* URLSessionFake.swift in Sources */,
+				38E789042A1F97F9003C8A57 /* ConversionTests.swift in Sources */,
+				38E7897D2A28D0C5003C8A57 /* MoneyFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,11 +412,6 @@
 			isa = PBXTargetDependency;
 			target = 38E788E82A1F97F8003C8A57 /* LeBaluchon */;
 			targetProxy = 38E789002A1F97F9003C8A57 /* PBXContainerItemProxy */;
-		};
-		38E7890B2A1F97F9003C8A57 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 38E788E82A1F97F8003C8A57 /* LeBaluchon */;
-			targetProxy = 38E7890A2A1F97F9003C8A57 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -561,6 +559,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VZ899C4D4A;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON/SwiftyJSON.framework/Headers\"",
+					"$(SRCROOT)/Pods/**",
+				);
 				INFOPLIST_FILE = LeBaluchon/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LeBaluchon;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
@@ -592,6 +595,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VZ899C4D4A;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON/SwiftyJSON.framework/Headers\"",
+					"$(SRCROOT)/Pods/**",
+				);
 				INFOPLIST_FILE = LeBaluchon/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LeBaluchon;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
@@ -655,42 +663,6 @@
 			};
 			name = Release;
 		};
-		38E7891A2A1F97F9003C8A57 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VZ899C4D4A;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.liliangrasset.LeBaluchonUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = LeBaluchon;
-			};
-			name = Debug;
-		};
-		38E7891B2A1F97F9003C8A57 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VZ899C4D4A;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.liliangrasset.LeBaluchonUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = LeBaluchon;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -717,15 +689,6 @@
 			buildConfigurations = (
 				38E789172A1F97F9003C8A57 /* Debug */,
 				38E789182A1F97F9003C8A57 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		38E789192A1F97F9003C8A57 /* Build configuration list for PBXNativeTarget "LeBaluchonUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				38E7891A2A1F97F9003C8A57 /* Debug */,
-				38E7891B2A1F97F9003C8A57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

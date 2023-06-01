@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rQq-OT-dj0">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -12,8 +12,8 @@
         <scene sceneID="OOW-lk-CWG">
             <objects>
                 <viewController id="8gf-Tg-hto" customClass="TranslationViewController" customModule="LeBaluchon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="F5m-L8-BjH" customClass="TranslationView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                    <view key="view" contentMode="scaleToFill" id="F5m-L8-BjH" userLabel="TranslationView" customClass="TranslationView">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="hLH-2m-yCm"/>
                         <color key="backgroundColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -29,7 +29,7 @@
             <objects>
                 <viewController id="NUd-Wt-WME" customClass="WeatherViewController" customModule="LeBaluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xBq-ng-BHT" userLabel="WeatherView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="UjG-D7-JFQ"/>
                         <color key="backgroundColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -47,22 +47,111 @@
             <objects>
                 <viewController id="lzN-9Z-NGW" customClass="ConversionViewController" customModule="LeBaluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dXw-F1-hB8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="p9M-A5-jyc">
+                                <rect key="frame" x="0.0" y="256" width="393" height="340"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="g8e-eK-kFh" userLabel="Amount Stack View">
+                                        <rect key="frame" x="57" y="0.0" width="279" height="34"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j5h-Na-uZk">
+                                                <rect key="frame" x="0.0" y="0.0" width="82.333333333333329" height="34"/>
+                                                <color key="backgroundColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="0.18039215689999999" green="0.15686274510000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done"/>
+                                            </textField>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="clN-Jc-Zmm">
+                                                <rect key="frame" x="98.333333333333343" y="1.6666666666666625" width="82.333333333333343" height="31.000000000000007"/>
+                                                <color key="tintColor" red="0.090196078430000007" green="0.74509803919999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </imageView>
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mpf-07-rEu">
+                                                <rect key="frame" x="196.66666666666666" y="0.0" width="82.333333333333343" height="34"/>
+                                                <color key="backgroundColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="0.18039215689999999" green="0.15686274510000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KsS-hg-if7" userLabel="Picker Stack View">
+                                        <rect key="frame" x="0.0" y="54" width="393" height="216"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xc-Ds-seI" userLabel="Base Picker View">
+                                                <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="216"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="lzN-9Z-NGW" id="xxf-h8-Od6"/>
+                                                    <outlet property="delegate" destination="lzN-9Z-NGW" id="sCa-sc-SAK"/>
+                                                </connections>
+                                            </pickerView>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgV-Ey-eM0" userLabel="Target Picker View">
+                                                <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="216"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="lzN-9Z-NGW" id="7QG-UP-PcB"/>
+                                                    <outlet property="delegate" destination="lzN-9Z-NGW" id="eLc-DF-Ifo"/>
+                                                </connections>
+                                            </pickerView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAG-PM-sCg">
+                                        <rect key="frame" x="149.33333333333334" y="290" width="94.333333333333343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="gxE-yp-hWI"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.090196078430000007" green="0.74509803919999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Convertir">
+                                            <color key="baseForegroundColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="baseBackgroundColor" red="0.090196078430000007" green="0.74509803919999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="convertCurrency" destination="lzN-9Z-NGW" eventType="touchUpInside" id="J0h-hN-lta"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Mpf-07-rEu" firstAttribute="centerX" secondItem="qgV-Ey-eM0" secondAttribute="centerX" id="VBj-nI-Hap"/>
+                                    <constraint firstItem="9xc-Ds-seI" firstAttribute="centerX" secondItem="j5h-Na-uZk" secondAttribute="centerX" id="tpw-dR-1UV"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="VPl-vH-Zqt"/>
                         <color key="backgroundColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="p9M-A5-jyc" firstAttribute="centerY" secondItem="dXw-F1-hB8" secondAttribute="centerY" id="FtF-6o-BWc"/>
+                            <constraint firstItem="VPl-vH-Zqt" firstAttribute="trailing" secondItem="p9M-A5-jyc" secondAttribute="trailing" id="ToQ-Hi-LFJ"/>
+                            <constraint firstItem="p9M-A5-jyc" firstAttribute="leading" secondItem="VPl-vH-Zqt" secondAttribute="leading" id="vbx-KH-kD2"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fHB-Bi-8hv" appends="YES" id="YOK-7m-s4J"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="dollarsign" catalog="system" id="asx-Nv-HAd"/>
+                    <connections>
+                        <outlet property="baseCurrencyAmount" destination="j5h-Na-uZk" id="gjJ-1f-eyk"/>
+                        <outlet property="baseCurrencyPicker" destination="9xc-Ds-seI" id="6Zp-fA-VDE"/>
+                        <outlet property="convertButton" destination="SAG-PM-sCg" id="foc-eM-Iyp"/>
+                        <outlet property="targetCurrencyAmount" destination="Mpf-07-rEu" id="rno-ao-4AM"/>
+                        <outlet property="targetCurrencyPicker" destination="qgV-Ey-eM0" id="Xf4-u3-uLc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPm-uh-red" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fHB-Bi-8hv">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="lzN-9Z-NGW" id="Vgt-2b-1aC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1480" y="-341"/>
+            <point key="canvasLocation" x="1479.2" y="-341.37931034482762"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YUh-nM-cez">
             <objects>
                 <tabBarController id="rQq-OT-dj0" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" itemPositioning="centered" id="fRZ-um-34O">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" id="fRZ-um-34O">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.18039215689999999" green="0.15686274510000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -80,6 +169,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
         <image name="character.textbox" catalog="system" width="128" height="89"/>
         <image name="cloud.sun.fill" catalog="system" width="128" height="96"/>
         <image name="dollarsign" catalog="system" width="89" height="128"/>
