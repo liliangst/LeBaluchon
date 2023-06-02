@@ -10,8 +10,13 @@ import XCTest
 
 final class ConversionTests: XCTestCase {
 
-    override class func setUp() {
+    var dummyViewController: DummyConversionViewController!
+    
+    override func setUp() {
+        super.setUp()
         
+        dummyViewController = DummyConversionViewController()
+        CurrencyService.shared.delegate = dummyViewController
     }
     
     override func setUpWithError() throws {
@@ -57,6 +62,8 @@ final class ConversionTests: XCTestCase {
         
         currencyService.getCurrencyConverter { currencyConverter in
             XCTAssertNil(currencyConverter)
+            let alertText = self.dummyViewController.alertText
+            XCTAssertEqual(alertText, "Il y a eu une erreur lors de la réception des données.")
         }
     }
     
@@ -65,6 +72,8 @@ final class ConversionTests: XCTestCase {
         
         currencyService.getCurrencyConverter { currencyConverter in
             XCTAssertNil(currencyConverter)
+            let alertText = self.dummyViewController.alertText
+            XCTAssertEqual(alertText, "Il y a eu une erreur lors de la réception des données.")
         }
     }
     
@@ -73,6 +82,8 @@ final class ConversionTests: XCTestCase {
         
         currencyService.getCurrencyConverter { currencyConverter in
             XCTAssertNil(currencyConverter)
+            let alertText = self.dummyViewController.alertText
+            XCTAssertEqual(alertText, "Il y a eu une erreur côté serveur.")
         }
     }
     
@@ -81,6 +92,8 @@ final class ConversionTests: XCTestCase {
         
         currencyService.getCurrencyConverter { currencyConverter in
             XCTAssertNil(currencyConverter)
+            let alertText = self.dummyViewController.alertText
+            XCTAssertEqual(alertText, "Il y a eu une erreur lors du décodage des données.")
         }
     }
     
@@ -136,5 +149,25 @@ final class ConversionTests: XCTestCase {
             XCTAssertNotNil(currencyConverter)
             XCTAssertEqual(currencyConverter?.convert(from: "EUR", to: "XXX", amount: 10), 0)
         }
+    }
+}
+
+class DummyConversionViewController: CurrencyServiceDelegate {
+    var alertText: String!
+
+    func noData() {
+        displayAlert("Il y a eu une erreur lors de la réception des données.")
+    }
+    
+    func wrongStatusCode() {
+        displayAlert("Il y a eu une erreur côté serveur.")
+    }
+    
+    func decodingError() {
+        displayAlert("Il y a eu une erreur lors du décodage des données.")
+    }
+    
+    private func displayAlert(_ text: String) {
+        alertText = text
     }
 }

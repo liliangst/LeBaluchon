@@ -7,9 +7,21 @@
 
 import Foundation
 
+protocol CurrencyServiceDelegate: AnyObject {
+    func noData()
+    func wrongStatusCode()
+    func decodingError()
+}
+
 class CurrencyService {
     static var shared = CurrencyService()
     private init() {}
+    
+    weak var delegate: CurrencyServiceDelegate?
+    
+    enum CurrencyServiceError: Error {
+        case noData, wrongStatusCode, decodeError
+    }
     
     private static let currencyURL = URL(string: "http://data.fixer.io/api/latest")!
     private var session = URLSession(configuration: .default)
@@ -29,12 +41,15 @@ class CurrencyService {
         task?.cancel()
         task = session.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
+                self.delegate?.noData()
                 return
             }
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                self.delegate?.wrongStatusCode()
                 return
             }
             guard let converter = try? JSONDecoder().decode(CurrencyConverter.self, from: data) else {
+                self.delegate?.decodingError()
                 return
             }
             callback(converter)
