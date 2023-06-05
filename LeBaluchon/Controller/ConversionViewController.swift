@@ -16,10 +16,16 @@ class ConversionViewController: UIViewController {
     @IBOutlet weak var convertButton: UIButton! {
         didSet {
             convertButton.isEnabled = false
+            convertButton.isHidden = true
+        }
+    }
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            activityIndicator.isHidden = false
         }
     }
     
-    var currencyConverter: CurrencyConverter!
+    var currencyConverter: CurrencyConverter?
     
     override func viewDidLoad() {
         setupPickerViews()
@@ -29,6 +35,7 @@ class ConversionViewController: UIViewController {
     
         CurrencyService.shared.getCurrencyConverter { converter in
             self.currencyConverter = converter
+            self.toggleOffActivityIndicator()
         }
     }
     
@@ -39,6 +46,11 @@ class ConversionViewController: UIViewController {
         targetCurrencyPicker.setValue(UIColor.app_blue, forKeyPath: "textColor")
         targetCurrencyPicker.selectRow(CurrencySymbols.indexOf("USD") ?? 0, inComponent: 0, animated: false)
     }
+    
+    private func toggleOffActivityIndicator() {
+        activityIndicator.isHidden = true
+        convertButton.isHidden = false
+    }
 }
 
 extension ConversionViewController {
@@ -47,8 +59,8 @@ extension ConversionViewController {
         let base = baseCurrencyPicker.selectedRow(inComponent: 0)
         let target = targetCurrencyPicker.selectedRow(inComponent: 0)
         let amountToConvert = Double(baseCurrencyAmount.text!) ?? 0
-        let result = currencyConverter.convert(from: CurrencySymbols.symbols[base], to: CurrencySymbols.symbols[target], amount: amountToConvert)
-        targetCurrencyAmount.text = MoneyFormatter.format(result)
+        let result = currencyConverter?.convert(from: CurrencySymbols.symbols[base], to: CurrencySymbols.symbols[target], amount: amountToConvert)
+        targetCurrencyAmount.text = MoneyFormatter.format(result!)
     }
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
