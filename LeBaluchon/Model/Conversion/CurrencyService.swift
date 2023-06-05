@@ -42,14 +42,17 @@ class CurrencyService {
         task = session.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 self.delegate?.noData()
+                callback(nil)
                 return
             }
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                 self.delegate?.wrongStatusCode()
+                callback(nil)
                 return
             }
             guard let converter = try? JSONDecoder().decode(CurrencyConverter.self, from: data) else {
                 self.delegate?.decodingError()
+                callback(nil)
                 return
             }
             callback(converter)

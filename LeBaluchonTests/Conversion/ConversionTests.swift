@@ -19,14 +19,6 @@ final class ConversionTests: XCTestCase {
         CurrencyService.shared.delegate = dummyViewController
     }
     
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
     // MARK: Testing CurrencySymbols class
     func testGettingCurrencySymbolIndex() {
         // Given
@@ -59,6 +51,8 @@ final class ConversionTests: XCTestCase {
     // MARK: Testing CurrencyService class
     func testGetCurrencyConverterShouldPostFailedCallbackIfError() {
         let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error))
+        dummyViewController = DummyConversionViewController()
+        currencyService.delegate = dummyViewController
         
         currencyService.getCurrencyConverter { currencyConverter in
             XCTAssertNil(currencyConverter)
@@ -69,6 +63,8 @@ final class ConversionTests: XCTestCase {
     
     func testGetCurrencyConverterShouldPostFailedCallbackIfNoData() {
         let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: nil))
+        dummyViewController = DummyConversionViewController()
+        currencyService.delegate = dummyViewController
         
         currencyService.getCurrencyConverter { currencyConverter in
             XCTAssertNil(currencyConverter)
@@ -79,6 +75,8 @@ final class ConversionTests: XCTestCase {
     
     func testGetCurrencyConverterShouldPostFailedCallbackIfIncorrectResponse() {
         let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseNotOk, error: nil))
+        dummyViewController = DummyConversionViewController()
+        currencyService.delegate = dummyViewController
         
         currencyService.getCurrencyConverter { currencyConverter in
             XCTAssertNil(currencyConverter)
@@ -89,6 +87,8 @@ final class ConversionTests: XCTestCase {
     
     func testGetCurrencyConverterShouldPostFailedCallbackIfIncorectData() {
         let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyIncorrectData, response: FakeResponseData.responseOk, error: nil))
+        dummyViewController = DummyConversionViewController()
+        currencyService.delegate = dummyViewController
         
         currencyService.getCurrencyConverter { currencyConverter in
             XCTAssertNil(currencyConverter)
