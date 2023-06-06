@@ -33,10 +33,7 @@ class ConversionViewController: UIViewController {
         baseCurrencyAmount.delegate = self
         CurrencyService.shared.delegate = self
     
-        CurrencyService.shared.getCurrencyConverter { converter in
-            self.currencyConverter = converter
-            self.toggleOffActivityIndicator()
-        }
+        fetchData()
     }
     
     private func setupPickerViews() {
@@ -54,6 +51,13 @@ class ConversionViewController: UIViewController {
 }
 
 extension ConversionViewController {
+    
+    private func fetchData() {
+        CurrencyService.shared.getCurrencyConverter { converter in
+            self.currencyConverter = converter
+            self.toggleOffActivityIndicator()
+        }
+    }
     
     @IBAction func convertCurrency() {
         let base = baseCurrencyPicker.selectedRow(inComponent: 0)
@@ -142,6 +146,9 @@ extension ConversionViewController: CurrencyServiceDelegate {
         let alertVC = UIAlertController(title: "Oups!",
                                         message: text, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        alertVC.addAction(UIAlertAction(title: "Réessayer", style: .default, handler: { _ in
+            self.fetchData()
+        }))
         return self.present(alertVC, animated: true, completion: nil)
     }
 }
