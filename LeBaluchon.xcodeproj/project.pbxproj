@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		249856DB8B65DC8A84C16FFF /* Pods_LeBaluchonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF9E793913601AE19AE5594 /* Pods_LeBaluchonTests.framework */; };
+		38D2A4D32A2F2B9E0093115C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D2A4D22A2F2B9E0093115C /* Constants.swift */; };
 		38E788ED2A1F97F8003C8A57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E788EC2A1F97F8003C8A57 /* AppDelegate.swift */; };
 		38E788EF2A1F97F8003C8A57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E788EE2A1F97F8003C8A57 /* SceneDelegate.swift */; };
 		38E788F12A1F97F8003C8A57 /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E788F02A1F97F8003C8A57 /* ConversionViewController.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		2B28922A29E69B5B9D962B05 /* Pods-LeBaluchon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchon.release.xcconfig"; path = "Target Support Files/Pods-LeBaluchon/Pods-LeBaluchon.release.xcconfig"; sourceTree = "<group>"; };
 		363B41954987C8652969D9EE /* Pods_LeBaluchon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeBaluchon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38D2A4D22A2F2B9E0093115C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		38E788E92A1F97F8003C8A57 /* LeBaluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeBaluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E788EC2A1F97F8003C8A57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38E788EE2A1F97F8003C8A57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				38E7896E2A26434E003C8A57 /* Colors.swift */,
 				38E7897A2A289277003C8A57 /* MoneyFormatter.swift */,
+				38D2A4D22A2F2B9E0093115C /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				38E7896B2A25F100003C8A57 /* WeatherViewController.swift in Sources */,
 				38E788F12A1F97F8003C8A57 /* ConversionViewController.swift in Sources */,
 				38E789792A278011003C8A57 /* Currency.swift in Sources */,
+				38D2A4D32A2F2B9E0093115C /* Constants.swift in Sources */,
 				38E789762A274E2A003C8A57 /* CurrencyService.swift in Sources */,
 				38E788ED2A1F97F8003C8A57 /* AppDelegate.swift in Sources */,
 				38E7897B2A289277003C8A57 /* MoneyFormatter.swift in Sources */,

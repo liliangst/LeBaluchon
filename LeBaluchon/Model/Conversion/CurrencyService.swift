@@ -33,7 +33,7 @@ class CurrencyService {
         
     func getCurrencyConverter(callback: @escaping (CurrencyConverter?) -> Void) {
         var url = CurrencyService.currencyURL
-        url.append(queryItems: [URLQueryItem(name: "access_key", value: "0993c95f421e6a935a2960218864470a")])
+        url.append(queryItems: [URLQueryItem(name: "access_key", value: Constants.currencyApiKey)])
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
