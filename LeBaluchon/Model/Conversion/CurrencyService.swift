@@ -19,20 +19,16 @@ class CurrencyService {
     
     weak var delegate: CurrencyServiceDelegate?
     
-    enum CurrencyServiceError: Error {
-        case noData, wrongStatusCode, decodeError
-    }
-    
-    private static let currencyURL = URL(string: "http://data.fixer.io/api/latest")!
+    private let currencyURL = URL(string: "http://data.fixer.io/api/latest")!
     private var session = URLSession(configuration: .default)
     var task: URLSessionDataTask?
     
     init(session: URLSession) {
         self.session = session
     }
-        
+
     func getCurrencyConverter(callback: @escaping (CurrencyConverter?) -> Void) {
-        var url = CurrencyService.currencyURL
+        var url = currencyURL
         url.append(queryItems: [URLQueryItem(name: "access_key", value: Constants.currencyApiKey)])
         
         var request = URLRequest(url: url)
