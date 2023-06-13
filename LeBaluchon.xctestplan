@@ -9,6 +9,10 @@
     }
   ],
   "defaultOptions" : {
+    "locationScenario" : {
+      "identifier" : "London, England",
+      "referenceType" : "built-in"
+    },
     "targetForVariableExpansion" : {
       "containerPath" : "container:LeBaluchon.xcodeproj",
       "identifier" : "38E788E82A1F97F8003C8A57",

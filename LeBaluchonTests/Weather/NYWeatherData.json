@@ -1,0 +1,43 @@
+{
+    "coord": {
+        "lon": -74.0059,
+        "lat": 40.7128
+    },
+    "weather": [
+        {
+            "id": 721,
+            "main": "Haze",
+            "description": "haze",
+            "icon": "50n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 13.91,
+        "feels_like": 12.92,
+        "temp_min": 10.79,
+        "temp_max": 15.68,
+        "pressure": 1004,
+        "humidity": 60
+    },
+    "visibility": 6437,
+    "wind": {
+        "speed": 3.6,
+        "deg": 350
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1686129729,
+    "sys": {
+        "type": 2,
+        "id": 2008101,
+        "country": "US",
+        "sunrise": 1686129918,
+        "sunset": 1686183881
+    },
+    "timezone": -14400,
+    "id": 5128581,
+    "name": "New York",
+    "cod": 200
+}

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FakeResponseData {
+class CurrencyFakeResponseData {
     static let responseOk = HTTPURLResponse(url: URL(string: "http://data.fixer.io/api/")!, statusCode: 200, httpVersion: nil, headerFields: [:])
     
     static let responseNotOk = HTTPURLResponse(url: URL(string: "http://data.fixer.io/api/")!, statusCode: 500, httpVersion: nil, headerFields: [:])
@@ -16,7 +16,7 @@ class FakeResponseData {
     static let error = CurrencyError()
     
     static var currencyCorrectData: Data {
-        let bundle = Bundle(for: FakeResponseData.self)
+        let bundle = Bundle(for: CurrencyFakeResponseData.self)
         let url = bundle.url(forResource: "Rates", withExtension: "json")
         let data = try! Data(contentsOf: url!)
         return data

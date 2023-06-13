@@ -26,5 +26,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Nous avons besoin de votre localisation pour les informations météo.</string>
 </dict>
 </plist>
