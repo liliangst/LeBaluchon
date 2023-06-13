@@ -127,9 +127,9 @@ final class WeatherServiceTests: XCTestCase {
                 XCTAssertEqual(nyFirstWeatherData.icon, "cloud.fog")
                 
                 let nySecondWeatherData = weatherDataList[1]
-                XCTAssertEqual(nyFirstWeatherData.name, "New York")
-                XCTAssertEqual(nyFirstWeatherData.temperature, 14)
-                XCTAssertEqual(nyFirstWeatherData.icon, "cloud.fog")
+                XCTAssertEqual(nySecondWeatherData.name, "New York")
+                XCTAssertEqual(nySecondWeatherData.temperature, 14)
+                XCTAssertEqual(nySecondWeatherData.icon, "cloud.fog")
                 
                 expectation.fulfill()
             case .failure(let error):
