@@ -31,7 +31,6 @@ class ConversionViewController: UIViewController {
         setupPickerViews()
 
         baseCurrencyAmount.delegate = self
-        CurrencyService.shared.delegate = self
     
         fetchData()
     }
@@ -53,9 +52,14 @@ class ConversionViewController: UIViewController {
 extension ConversionViewController {
     
     private func fetchData() {
-        CurrencyService.shared.getCurrencyConverter { converter in
-            self.currencyConverter = converter
-            self.toggleOffActivityIndicator()
+        CurrencyService.shared.getCurrencyConverter { result in
+            switch result {
+            case .success(let converter):
+                self.currencyConverter = converter
+                self.toggleOffActivityIndicator()
+            case .failure(let error):
+                self.displayError(error)
+            }
         }
     }
     
@@ -128,18 +132,17 @@ extension ConversionViewController: UITextFieldDelegate {
     }
 }
 
-extension ConversionViewController: CurrencyServiceDelegate {
-    
-    func noData() {
-        displayAlert("Il y a eu une erreur lors de la réception des données.")
-    }
-    
-    func wrongStatusCode() {
-        displayAlert("Il y a eu une erreur côté serveur.")
-    }
-    
-    func decodingError() {
-        displayAlert("Il y a eu une erreur lors du décodage des données.")
+extension ConversionViewController {
+
+    func displayError(_ error: CurrencyServiceError) {
+        switch error {
+        case .noData:
+            displayAlert("Il y a eu une erreur lors de la réception des données.")
+        case .wrongStatusCode:
+            displayAlert("Il y a eu une erreur côté serveur.")
+        case .decodingError:
+            displayAlert("Il y a eu une erreur lors du décodage des données.")
+        }
     }
     
     private func displayAlert(_ text: String) {
