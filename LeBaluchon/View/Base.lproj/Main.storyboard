@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rQq-OT-dj0">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,10 +15,10 @@
             <objects>
                 <viewController id="8gf-Tg-hto" customClass="TranslationViewController" customModule="LeBaluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F5m-L8-BjH" userLabel="TranslationView" customClass="TranslationView">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="hLH-2m-yCm"/>
-                        <color key="backgroundColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="character.textbox" catalog="system" id="8bw-0Y-09E"/>
                 </viewController>
@@ -24,38 +26,92 @@
             </objects>
             <point key="canvasLocation" x="1479" y="301"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="kxo-Ym-b3G">
+            <objects>
+                <viewController id="1WE-jx-Reo" userLabel="Settings View Controller" customClass="SettingsViewController" customModule="LeBaluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Aod-yo-8kp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8zH-ul-LE1">
+                                <rect key="frame" x="20" y="136" width="335" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mode sombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oab-1h-Xum">
+                                        <rect key="frame" x="0.0" y="0.0" width="278" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" name="TextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qSj-Pz-zH9">
+                                        <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                        <color key="onTintColor" name="PrimaryColor"/>
+                                        <color key="thumbTintColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <action selector="switchDarkLightMode:" destination="1WE-jx-Reo" eventType="valueChanged" id="xb6-iW-5fU"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paramètres" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mo-dR-ahh">
+                                <rect key="frame" x="20" y="70" width="335" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CMq-T6-EF9"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8zH-ul-LE1" firstAttribute="top" secondItem="8Mo-dR-ahh" secondAttribute="bottom" constant="30" id="CV8-m7-oGg"/>
+                            <constraint firstItem="8zH-ul-LE1" firstAttribute="leading" secondItem="CMq-T6-EF9" secondAttribute="leading" constant="20" id="J2Q-va-Aa2"/>
+                            <constraint firstItem="CMq-T6-EF9" firstAttribute="trailing" secondItem="8zH-ul-LE1" secondAttribute="trailing" constant="20" id="Nat-ax-Fl9"/>
+                            <constraint firstItem="8Mo-dR-ahh" firstAttribute="top" secondItem="CMq-T6-EF9" secondAttribute="top" constant="20" id="ffz-YE-vrP"/>
+                            <constraint firstItem="8Mo-dR-ahh" firstAttribute="leading" secondItem="CMq-T6-EF9" secondAttribute="leading" constant="20" id="lzD-pw-cSk"/>
+                            <constraint firstItem="CMq-T6-EF9" firstAttribute="trailing" secondItem="8Mo-dR-ahh" secondAttribute="trailing" constant="20" id="qnF-nY-M3D"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="gearshape" catalog="system" id="AiY-pb-P9w"/>
+                    <connections>
+                        <outlet property="darkModeSwitch" destination="qSj-Pz-zH9" id="rVH-P1-Z5j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yiz-Gd-emb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2500" y="62.807881773399018"/>
+        </scene>
         <!--Weather View Controller-->
         <scene sceneID="F9m-3j-uwI">
             <objects>
                 <viewController id="NUd-Wt-WME" customClass="WeatherViewController" customModule="LeBaluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xBq-ng-BHT" userLabel="WeatherView">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="fI6-eZ-7M4">
-                                <rect key="frame" x="186.66666666666666" y="74" width="20" height="20"/>
+                                <rect key="frame" x="177.66666666666666" y="65" width="20" height="20"/>
                                 <color key="color" red="0.090196078430000007" green="0.74509803919999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="1yr-0H-6Ak">
-                                <rect key="frame" x="35" y="224.33333333333334" width="323" height="403.33333333333326"/>
+                                <rect key="frame" x="35" y="214.33333333333334" width="305" height="383.33333333333326"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTv-5h-6cm" userLabel="Local Weather View">
-                                        <rect key="frame" x="0.0" y="0.0" width="323" height="176.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="166.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SyU-my-RFV" userLabel="City Label">
-                                                <rect key="frame" x="10" y="151.66666666666666" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="10" y="141.66666666666666" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <color key="textColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1I-ZJ-1kD" userLabel="Temperature Label">
-                                                <rect key="frame" x="10" y="156.66666666666666" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="10" y="146.66666666666666" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                                 <color key="textColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lWe-Bf-tzM" userLabel="Weather Image">
-                                                <rect key="frame" x="206.33333333333334" y="15.000000000000007" width="101.66666666666666" height="101.66666666666669"/>
+                                                <rect key="frame" x="198.33333333333334" y="15" width="91.666666666666657" height="91.666666666666671"/>
                                                 <color key="tintColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="lWe-Bf-tzM" secondAttribute="height" multiplier="1:1" id="mgX-Jw-WGm"/>
@@ -89,22 +145,22 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7aP-LL-8hV" userLabel="NY Weather View">
-                                        <rect key="frame" x="0.0" y="226.66666666666669" width="323" height="176.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="216.66666666666669" width="305" height="166.66666666666669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUl-6W-4aB" userLabel="City Label">
-                                                <rect key="frame" x="10" y="151.66666666666663" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="10" y="141.66666666666663" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <color key="textColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dsq-Lg-Eax" userLabel="Temperature Label">
-                                                <rect key="frame" x="10" y="156.66666666666663" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="10" y="146.66666666666663" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                                 <color key="textColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9pt-Hf-VHz" userLabel="Weather Image">
-                                                <rect key="frame" x="206.33333333333334" y="15.000000000000007" width="101.66666666666666" height="101.66666666666669"/>
+                                                <rect key="frame" x="198.33333333333334" y="15" width="91.666666666666657" height="91.666666666666671"/>
                                                 <color key="tintColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="9pt-Hf-VHz" secondAttribute="height" multiplier="1:1" id="lPw-Xw-o8W"/>
@@ -135,7 +191,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UjG-D7-JFQ"/>
-                        <color key="backgroundColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="1yr-0H-6Ak" firstAttribute="leading" secondItem="UjG-D7-JFQ" secondAttribute="leading" constant="35" id="19N-Ys-hau"/>
@@ -173,47 +229,47 @@
             <objects>
                 <viewController id="lzN-9Z-NGW" customClass="ConversionViewController" customModule="LeBaluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dXw-F1-hB8">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="p9M-A5-jyc">
-                                <rect key="frame" x="0.0" y="236" width="393" height="380"/>
+                                <rect key="frame" x="0.0" y="216" width="375" height="380"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="g8e-eK-kFh" userLabel="Amount Stack View">
-                                        <rect key="frame" x="57" y="0.0" width="279" height="34"/>
+                                        <rect key="frame" x="55" y="0.0" width="265" height="34"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j5h-Na-uZk">
-                                                <rect key="frame" x="0.0" y="0.0" width="82.333333333333329" height="34"/>
-                                                <color key="backgroundColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <color key="textColor" red="0.18039215689999999" green="0.15686274510000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="77.666666666666671" height="34"/>
+                                                <color key="backgroundColor" name="SecondaryColor"/>
+                                                <color key="textColor" name="ReverseTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done"/>
                                             </textField>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="clN-Jc-Zmm">
-                                                <rect key="frame" x="98.333333333333343" y="1.6666666666666625" width="82.333333333333343" height="31.000000000000007"/>
+                                                <rect key="frame" x="93.666666666666657" y="1.6666666666666625" width="77.666666666666657" height="31.000000000000007"/>
                                                 <color key="tintColor" red="0.090196078430000007" green="0.74509803919999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </imageView>
                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mpf-07-rEu">
-                                                <rect key="frame" x="196.66666666666666" y="0.0" width="82.333333333333343" height="34"/>
-                                                <color key="backgroundColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <color key="textColor" red="0.18039215689999999" green="0.15686274510000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <rect key="frame" x="187.33333333333334" y="0.0" width="77.666666666666657" height="34"/>
+                                                <color key="backgroundColor" name="SecondaryColor"/>
+                                                <color key="textColor" name="ReverseTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KsS-hg-if7" userLabel="Picker Stack View">
-                                        <rect key="frame" x="0.0" y="54" width="393" height="216"/>
+                                        <rect key="frame" x="0.0" y="54" width="375" height="216"/>
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xc-Ds-seI" userLabel="Base Picker View">
-                                                <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="216"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="216"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="lzN-9Z-NGW" id="xxf-h8-Od6"/>
                                                     <outlet property="delegate" destination="lzN-9Z-NGW" id="sCa-sc-SAK"/>
                                                 </connections>
                                             </pickerView>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgV-Ey-eM0" userLabel="Target Picker View">
-                                                <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="216"/>
+                                                <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="216"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="lzN-9Z-NGW" id="7QG-UP-PcB"/>
                                                     <outlet property="delegate" destination="lzN-9Z-NGW" id="eLc-DF-Ifo"/>
@@ -222,11 +278,11 @@
                                         </subviews>
                                     </stackView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="yxo-qZ-5GO">
-                                        <rect key="frame" x="186.66666666666666" y="290" width="20" height="20"/>
-                                        <color key="color" red="0.090196078430000007" green="0.74509803919999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <rect key="frame" x="177.66666666666666" y="290" width="20" height="20"/>
+                                        <color key="color" name="PrimaryColor"/>
                                     </activityIndicatorView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAG-PM-sCg">
-                                        <rect key="frame" x="149.33333333333334" y="330" width="94.333333333333343" height="50"/>
+                                        <rect key="frame" x="140.33333333333334" y="330" width="94.333333333333343" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="gxE-yp-hWI"/>
                                         </constraints>
@@ -234,7 +290,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Convertir">
                                             <color key="baseForegroundColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <color key="baseBackgroundColor" red="0.090196078430000007" green="0.74509803919999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="baseBackgroundColor" name="PrimaryColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="convertCurrency" destination="lzN-9Z-NGW" eventType="touchUpInside" id="J0h-hN-lta"/>
@@ -248,7 +304,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VPl-vH-Zqt"/>
-                        <color key="backgroundColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="p9M-A5-jyc" firstAttribute="centerY" secondItem="dXw-F1-hB8" secondAttribute="centerY" id="FtF-6o-BWc"/>
@@ -286,12 +342,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.18039215689999999" green="0.15686274510000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="selectedImageTintColor" red="0.090196078430000007" green="0.74509803919999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" name="PrimaryColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="lzN-9Z-NGW" kind="relationship" relationship="viewControllers" id="Oxf-6r-4Dd"/>
                         <segue destination="8gf-Tg-hto" kind="relationship" relationship="viewControllers" id="Wke-iD-0Ej"/>
                         <segue destination="NUd-Wt-WME" kind="relationship" relationship="viewControllers" id="7Jv-IQ-Jgo"/>
+                        <segue destination="1WE-jx-Reo" kind="relationship" relationship="viewControllers" id="t1G-3E-Srr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ioK-8E-ifp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -304,5 +361,21 @@
         <image name="character.textbox" catalog="system" width="128" height="89"/>
         <image name="cloud.sun.fill" catalog="system" width="128" height="96"/>
         <image name="dollarsign" catalog="system" width="89" height="128"/>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryColor">
+            <color red="0.090196078430000007" green="0.74509803919999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="ReverseTextColor">
+            <color red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryColor">
+            <color red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.18039215689999999" green="0.15686274510000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>
