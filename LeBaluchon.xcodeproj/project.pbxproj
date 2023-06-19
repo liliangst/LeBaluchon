@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		249856DB8B65DC8A84C16FFF /* Pods_LeBaluchonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF9E793913601AE19AE5594 /* Pods_LeBaluchonTests.framework */; };
+		3811BDF12A409D6700639125 /* SettingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811BDF02A409D6700639125 /* SettingTests.swift */; };
 		38150F2F2A327EE30077C3BD /* WeatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38150F2E2A327EE30077C3BD /* WeatherIcon.swift */; };
 		38AA6FCB2A3320A200121479 /* WeatherIconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA6FCA2A3320A200121479 /* WeatherIconTests.swift */; };
 		38AA6FD12A37684000121479 /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA6FD02A37684000121479 /* WeatherLocation.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		2B28922A29E69B5B9D962B05 /* Pods-LeBaluchon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchon.release.xcconfig"; path = "Target Support Files/Pods-LeBaluchon/Pods-LeBaluchon.release.xcconfig"; sourceTree = "<group>"; };
 		363B41954987C8652969D9EE /* Pods_LeBaluchon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeBaluchon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3811BDF02A409D6700639125 /* SettingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTests.swift; sourceTree = "<group>"; };
 		38150F2E2A327EE30077C3BD /* WeatherIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcon.swift; sourceTree = "<group>"; };
 		38AA6FCA2A3320A200121479 /* WeatherIconTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconTests.swift; sourceTree = "<group>"; };
 		38AA6FD02A37684000121479 /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
@@ -130,6 +132,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3811BDEF2A409D5500639125 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3811BDF02A409D6700639125 /* SettingTests.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		38AA6FD62A39C25D00121479 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +209,7 @@
 				38E7897E2A28D73B003C8A57 /* Conversion */,
 				38D2A4DA2A30BA7C0093115C /* Weather */,
 				38AA6FDB2A3C696600121479 /* Translation */,
+				3811BDEF2A409D5500639125 /* Settings */,
 			);
 			path = LeBaluchonTests;
 			sourceTree = "<group>";
@@ -485,6 +496,7 @@
 				38AA6FDF2A3C69BE00121479 /* TranslationFakeResponseData.swift in Sources */,
 				38E789842A28E6A4003C8A57 /* URLSessionFake.swift in Sources */,
 				38AA6FCB2A3320A200121479 /* WeatherIconTests.swift in Sources */,
+				3811BDF12A409D6700639125 /* SettingTests.swift in Sources */,
 				38AA6FE32A3C6A4F00121479 /* TranslationServiceTests.swift in Sources */,
 				38D2A4E02A30BACB0093115C /* WeatherServiceTests.swift in Sources */,
 				38D2A4E22A30BADC0093115C /* WeatherFakeResponseData.swift in Sources */,
