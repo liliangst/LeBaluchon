@@ -171,6 +171,58 @@ final class ConversionTests: XCTestCase {
     }
     
     // MARK: Test getCurrencyConverter with async await
+    func testGetCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfError() {
+        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: CurrencyFakeResponseData.error))
+        
+        Task.init {
+            do {
+                let converter = try await currencyService.getCurrencyConverter()
+                XCTFail("Error this should fail.")
+            } catch CurrencyServiceError.noData {
+                XCTAssert(true)
+            }
+        }
+    }
+    
+    func testGetCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfNoData() {
+        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: nil))
+        
+        Task.init {
+            do {
+                let converter = try await currencyService.getCurrencyConverter()
+                XCTFail("Error this should fail.")
+            } catch CurrencyServiceError.noData {
+                XCTAssert(true)
+            }
+        }
+    }
+    
+    func testGetCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfIncorrectResponse() {
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseNotOk, error: nil))
+        
+        Task.init {
+            do {
+                let converter = try await currencyService.getCurrencyConverter()
+                XCTFail("Error this should fail.")
+            } catch CurrencyServiceError.wrongStatusCode {
+                XCTAssert(true)
+            }
+        }
+    }
+    
+    func testGetCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfIncorectData() {
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyIncorrectData, response: CurrencyFakeResponseData.responseOk, error: nil))
+        
+        Task.init {
+            do {
+                let converter = try await currencyService.getCurrencyConverter()
+                XCTFail("Error this should fail.")
+            } catch CurrencyServiceError.decodingError {
+                XCTAssert(true)
+            }
+        }
+    }
+    
     func testGetCurrencyConverterAsyncAwaitShouldSuccess() {
         let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil))
         Task.init {
@@ -181,6 +233,7 @@ final class ConversionTests: XCTestCase {
                 XCTFail("An error occured")
             }
         }
-        
     }
+    
+    
 }
