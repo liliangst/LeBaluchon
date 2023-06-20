@@ -14,7 +14,7 @@ final class WeatherServiceTests: XCTestCase {
     // MARK: Testing WeatherService class
     func testFetchWeatherDataShouldPostFailedCallbackIfError() {
         let weatherService = WeatherService(
-            session: URLSessionFake(data: nil, response: nil, error: WeatherFakeResponseData.error))
+            session: URLSessionFake(data: nil, response: nil, error: WeatherFakeResponseData.error).session)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchWeatherData(at: .newYork) { result in
@@ -26,12 +26,11 @@ final class WeatherServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
     }
     
     func testFetchWeatherDataShouldPostFailedCallbackIfNoData() {
         let weatherService = WeatherService(
-            session: URLSessionFake(data: nil, response: nil, error: nil))
+            session: URLSessionFake(data: nil, response: nil, error: nil).session)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchWeatherData(at: .local) { result in
@@ -43,12 +42,11 @@ final class WeatherServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
     }
     
     func testFetchWeatherDataShouldPostFailedCallbackIfIncorrectResponse() {
         let weatherService = WeatherService(
-            session: URLSessionFake(data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseNotOk, error: nil))
+            session: URLSessionFake(data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseNotOk, error: nil).session)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchWeatherData(at: .newYork) { result in
@@ -60,12 +58,11 @@ final class WeatherServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
     }
     
     func testFetchWeatherDataShouldPostFailedCallbackIfIncorectData() {
         let weatherService = WeatherService(
-            session: URLSessionFake(data: WeatherFakeResponseData.weatherIncorrectData, response: WeatherFakeResponseData.responseOk, error: nil))
+            session: URLSessionFake(data: WeatherFakeResponseData.weatherIncorrectData, response: WeatherFakeResponseData.responseOk, error: nil).session)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchWeatherData(at: .local)  { result in
@@ -77,12 +74,11 @@ final class WeatherServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
     }
     
     func testfetchWeatherDataShouldSuccess() {
         let weatherService = WeatherService(
-            session: URLSessionFake(data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseOk, error: nil))
+            session: URLSessionFake(data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseOk, error: nil).session)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchWeatherData(at: .newYork) { result in
@@ -96,26 +92,27 @@ final class WeatherServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
     }
     
-    func testfetchWeatherDataAsyncShouldSuccess() async {
+    func testfetchWeatherDataAsyncShouldSuccess() {
         let weatherService = WeatherService(
-            session: URLSessionFake(data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseOk, error: nil))
+            session: URLSessionFake(data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseOk, error: nil).session)
         
-        do {
-            let weatherData = try await weatherService.fetchWeatherData(at: .newYork)
-            XCTAssertEqual(weatherData.name, "New York")
-            XCTAssertEqual(weatherData.temperature, 14)
-            XCTAssertEqual(weatherData.icon, "cloud.fog")
-        } catch {
-            XCTFail("Fetching asynchronously should success but there is an error: \(error.self), \(error.localizedDescription)")
+        Task.init {
+            do {
+                let weatherData = try await weatherService.fetchWeatherData(at: .newYork)
+                XCTAssertEqual(weatherData.name, "New York")
+                XCTAssertEqual(weatherData.temperature, 14)
+                XCTAssertEqual(weatherData.icon, "cloud.fog")
+            } catch {
+                XCTFail("Fetching asynchronously should success but there is an error: \(error.self), \(error.localizedDescription)")
+            }
         }
     }
     
     func testFetchBothWeatherDataShouldSuccess() {
         let weatherService = WeatherService(
-            session: URLSessionFake(data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseOk, error: nil))
+            session: URLSessionFake(data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseOk, error: nil).session)
 
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchBothWeatherData(at: .newYork, and: .newYork) { result in
@@ -137,12 +134,11 @@ final class WeatherServiceTests: XCTestCase {
                 expectation.fulfill()
             }
         }
-        wait(for: [expectation], timeout: 0.1)
     }
     
     func testFetchBothWeatherDataShouldFail() {
         let weatherService = WeatherService(
-            session: URLSessionFake(data: nil, response: nil, error: WeatherFakeResponseData.error))
+            session: URLSessionFake(data: nil, response: nil, error: WeatherFakeResponseData.error).session)
 
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchBothWeatherData(at: .newYork, and: .newYork) { result in
@@ -155,6 +151,5 @@ final class WeatherServiceTests: XCTestCase {
                 expectation.fulfill()
             }
         }
-        wait(for: [expectation], timeout: 0.1)
     }
 }

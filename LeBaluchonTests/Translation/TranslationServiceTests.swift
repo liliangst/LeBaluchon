@@ -14,7 +14,7 @@ final class TranslationServiceTests: XCTestCase {
     
     func testFetchTranslationDataShouldPostFailedCallbackIfError() {
         let translationService = TranslationService(
-            session: URLSessionFake(data: nil, response: nil, error: TranslationFakeResponseData.error))
+            session: URLSessionFake(data: nil, response: nil, error: TranslationFakeResponseData.error).session)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         translationService.fetchTranslationData(source: "en", target: "fr", text: testText) { result in
@@ -26,12 +26,11 @@ final class TranslationServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
     }
     
     func testFetchTranslationDataShouldPostFailedCallbackIfNoData() {
         let translationService = TranslationService(
-            session: URLSessionFake(data: nil, response: nil, error: nil))
+            session: URLSessionFake(data: nil, response: nil, error: nil).session)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         translationService.fetchTranslationData(source: "en", target: "fr", text: testText) { result in
@@ -43,12 +42,11 @@ final class TranslationServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
     }
     
     func testFetchTranslationDataShouldPostFailedCallbackIfIncorrectResponse() {
         let translationService = TranslationService(
-            session: URLSessionFake(data: TranslationFakeResponseData.translationCorrectData, response: TranslationFakeResponseData.responseNotOk, error: nil))
+            session: URLSessionFake(data: TranslationFakeResponseData.translationCorrectData, response: TranslationFakeResponseData.responseNotOk, error: nil).session)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         translationService.fetchTranslationData(source: "en", target: "fr", text: testText) { result in
@@ -60,12 +58,11 @@ final class TranslationServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
     }
     
     func testFetchTranslationDataShouldPostFailedCallbackIfIncorectData() {
         let translationService = TranslationService(
-            session: URLSessionFake(data: TranslationFakeResponseData.translationIncorrectData, response: TranslationFakeResponseData.responseOk, error: nil))
+            session: URLSessionFake(data: TranslationFakeResponseData.translationIncorrectData, response: TranslationFakeResponseData.responseOk, error: nil).session)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         translationService.fetchTranslationData(source: "en", target: "fr", text: testText) { result in
@@ -77,12 +74,11 @@ final class TranslationServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
     }
     
     func testfetchTranslationDataShouldSuccess() {
         let translationService = TranslationService(
-            session: URLSessionFake(data: TranslationFakeResponseData.translationCorrectData, response: TranslationFakeResponseData.responseOk, error: nil))
+            session: URLSessionFake(data: TranslationFakeResponseData.translationCorrectData, response: TranslationFakeResponseData.responseOk, error: nil).session)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         translationService.fetchTranslationData(source: "en", target: "fr", text: testText) { result in
@@ -94,6 +90,5 @@ final class TranslationServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
     }
 }

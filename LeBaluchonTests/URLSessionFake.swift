@@ -7,39 +7,60 @@
 
 import Foundation
 
-class URLSessionFake: URLSession {
-    var data: Data?
-    var response: URLResponse?
-    var error: Error?
-
-    init(data: Data?, response: URLResponse?, error: Error?) {
-        self.data = data
-        self.response = response
-        self.error = error
-    }
+class URLSessionFake {
+    let session: URLSession
     
-    override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        let task = URLSessionDataTaskFake()
-        task.data = data
-        task.urlResponse = response
-        task.responseError = error
-        task.completionHandler = completionHandler
-        return task
+    init(data: Data?, response: URLResponse?, error: Error?) {
+        let configuration = URLSessionConfiguration.default
+        configuration.protocolClasses?.insert(MockURLProtocol.self, at: 0)
+        session = URLSession(configuration: configuration)
+        
+        MockURLProtocol.requestHandler = { request in
+            if let error {
+                throw error
+            }
+            return (response, data)
+        }
     }
 }
 
-class URLSessionDataTaskFake: URLSessionDataTask {
-    var completionHandler: ((Data?, URLResponse?, Error?) -> Void)?
+class MockURLProtocol: URLProtocol {
     
-    var data: Data?
-    var urlResponse: URLResponse?
-    var responseError: Error?
+    static var requestHandler: ((URLRequest) throws -> (URLResponse?, Data?))?
     
-    override func resume() {
-        completionHandler?(data, urlResponse, responseError)
+    override class func canInit(with task: URLSessionTask) -> Bool {
+        return true
     }
     
-    override func cancel() {
+    override class func canInit(with request: URLRequest) -> Bool {
+        return true
+    }
+    
+    override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+        return request
+    }
+    
+    override func startLoading() {
+        guard let handler = MockURLProtocol.requestHandler else {
+            fatalError("Handler is unavailable.")
+        }
         
+        do {
+            let (response, data) = try handler(request)
+            
+            if let response = response {
+                client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+            }
+            
+            if let data = data {
+                client?.urlProtocol(self, didLoad: data)
+            }
+            client?.urlProtocolDidFinishLoading(self)
+        } catch {
+            client?.urlProtocol(self, didFailWithError: error)
+        }
     }
+
+    override func stopLoading() {}
+    
 }

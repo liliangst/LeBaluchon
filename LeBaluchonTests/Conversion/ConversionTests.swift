@@ -41,7 +41,7 @@ final class ConversionTests: XCTestCase {
     
     // MARK: Testing CurrencyService class
     func testGetCurrencyConverterShouldPostFailedCallbackIfError() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: CurrencyFakeResponseData.error))
+        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: CurrencyFakeResponseData.error).session)
         
         currencyService.getCurrencyConverter { result in
             switch result {
@@ -54,7 +54,7 @@ final class ConversionTests: XCTestCase {
     }
     
     func testGetCurrencyConverterShouldPostFailedCallbackIfNoData() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: nil).session)
         
         currencyService.getCurrencyConverter { result in
             switch result {
@@ -67,7 +67,7 @@ final class ConversionTests: XCTestCase {
     }
     
     func testGetCurrencyConverterShouldPostFailedCallbackIfIncorrectResponse() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseNotOk, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseNotOk, error: nil).session)
         
         currencyService.getCurrencyConverter { result in
             switch result {
@@ -80,7 +80,7 @@ final class ConversionTests: XCTestCase {
     }
     
     func testGetCurrencyConverterShouldPostFailedCallbackIfIncorectData() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyIncorrectData, response: CurrencyFakeResponseData.responseOk, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyIncorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
         
         currencyService.getCurrencyConverter { result in
             switch result {
@@ -93,7 +93,7 @@ final class ConversionTests: XCTestCase {
     }
     
     func testGetCurrencyConverterShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
         
         currencyService.getCurrencyConverter { result in
             switch result {
@@ -106,7 +106,7 @@ final class ConversionTests: XCTestCase {
     }
     
     func testCurrencyConversionShouldSuccessBetweenAUDandUSD() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
 
         currencyService.getCurrencyConverter{ result in
             switch result {
@@ -119,7 +119,7 @@ final class ConversionTests: XCTestCase {
     }
     
     func testCurrencyConversionShouldSuccessBetweenEURandUSD() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
 
         currencyService.getCurrencyConverter{ result in
             switch result {
@@ -132,7 +132,7 @@ final class ConversionTests: XCTestCase {
     }
     
     func testCurrencyConversionShouldFailBetweenUnlistedBaseandUSD() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
 
         currencyService.getCurrencyConverter{ result in
             switch result {
@@ -145,7 +145,7 @@ final class ConversionTests: XCTestCase {
     }
     
     func testCurrencyConversionShouldFailBetweenAUDandUnlistedTarget() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
 
         currencyService.getCurrencyConverter{ result in
             switch result {
@@ -158,7 +158,7 @@ final class ConversionTests: XCTestCase {
     }
     
     func testCurrencyConversionShouldFailBetweenEURandUnlistedTarget() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
 
         currencyService.getCurrencyConverter{ result in
             switch result {
@@ -172,11 +172,11 @@ final class ConversionTests: XCTestCase {
     
     // MARK: Test getCurrencyConverter with async await
     func testGetCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfError() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: CurrencyFakeResponseData.error))
+        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: CurrencyFakeResponseData.error).session)
         
         Task.init {
             do {
-                let converter = try await currencyService.getCurrencyConverter()
+                let _ = try await currencyService.getCurrencyConverter()
                 XCTFail("Error this should fail.")
             } catch CurrencyServiceError.noData {
                 XCTAssert(true)
@@ -185,11 +185,11 @@ final class ConversionTests: XCTestCase {
     }
     
     func testGetCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfNoData() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: nil).session)
         
         Task.init {
             do {
-                let converter = try await currencyService.getCurrencyConverter()
+                let _ = try await currencyService.getCurrencyConverter()
                 XCTFail("Error this should fail.")
             } catch CurrencyServiceError.noData {
                 XCTAssert(true)
@@ -198,11 +198,11 @@ final class ConversionTests: XCTestCase {
     }
     
     func testGetCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfIncorrectResponse() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseNotOk, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseNotOk, error: nil).session)
         
         Task.init {
             do {
-                let converter = try await currencyService.getCurrencyConverter()
+                let _ = try await currencyService.getCurrencyConverter()
                 XCTFail("Error this should fail.")
             } catch CurrencyServiceError.wrongStatusCode {
                 XCTAssert(true)
@@ -211,11 +211,11 @@ final class ConversionTests: XCTestCase {
     }
     
     func testGetCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfIncorectData() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyIncorrectData, response: CurrencyFakeResponseData.responseOk, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyIncorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
         
         Task.init {
             do {
-                let converter = try await currencyService.getCurrencyConverter()
+                let _ = try await currencyService.getCurrencyConverter()
                 XCTFail("Error this should fail.")
             } catch CurrencyServiceError.decodingError {
                 XCTAssert(true)
@@ -224,7 +224,7 @@ final class ConversionTests: XCTestCase {
     }
     
     func testGetCurrencyConverterAsyncAwaitShouldSuccess() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
         Task.init {
             do {
                 let converter = try await currencyService.getCurrencyConverter()
