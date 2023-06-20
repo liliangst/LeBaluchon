@@ -25,7 +25,13 @@ class CurrencyService {
     
     func getCurrencyConverter(callback: @escaping (Result<CurrencyConverter, CurrencyServiceError>) -> Void) {
         var url = currencyURL
-        url.append(queryItems: [URLQueryItem(name: "access_key", value: Constants.currencyApiKey)])
+        if #available(iOS 16.0, *) {
+            url.append(queryItems: [URLQueryItem(name: "access_key", value: Constants.currencyApiKey)])
+        } else {
+            url = URL(string: url.absoluteString +
+                      "?access_key=\(Constants.currencyApiKey)"
+            )!
+        }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -53,7 +59,11 @@ class CurrencyService {
     
     func getCurrencyConverter() async throws -> CurrencyConverter {
         var url = currencyURL
-        url.append(queryItems: [URLQueryItem(name: "access_key", value: Constants.currencyApiKey)])
+        if #available(iOS 16.0, *) {
+            url.append(queryItems: [URLQueryItem(name: "access_key", value: Constants.currencyApiKey)])
+        } else {
+            url.appendPathComponent("?access_key=\(Constants.currencyApiKey)")
+        }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"

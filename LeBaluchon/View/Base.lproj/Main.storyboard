@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rQq-OT-dj0">
     <device id="retina5_9" orientation="portrait" appearance="dark"/>
+    <accessibilityOverrides/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -40,14 +42,17 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRc-ne-zVx" userLabel="TranslateButton">
-                                                        <rect key="frame" x="251.33333333333329" y="0.0" width="83.666666666666657" height="32"/>
+                                                        <rect key="frame" x="260" y="0.0" width="75" height="32"/>
+                                                        <color key="backgroundColor" name="PrimaryColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="o2q-Zl-g7n"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <color key="tintColor" name="PrimaryColor"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Traduire">
-                                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                            <color key="baseForegroundColor" name="TextColor"/>
-                                                            <color key="baseBackgroundColor" name="PrimaryColor"/>
-                                                        </buttonConfiguration>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Traduire">
+                                                            <color key="titleColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -169,7 +174,7 @@
                             <outletCollection property="gestureRecognizers" destination="8Wq-fB-dxz" appends="YES" id="UCo-gz-mOS"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="character.textbox" catalog="system" id="8bw-0Y-09E"/>
+                    <tabBarItem key="tabBarItem" title="" image="text.bubble" catalog="system" id="8bw-0Y-09E"/>
                     <connections>
                         <outlet property="sourceLanguageInput" destination="KRW-rH-wye" id="hIA-E2-UKu"/>
                         <outlet property="sourceLanguageLabel" destination="qZJ-7g-8hK" id="xDK-hq-foL"/>
@@ -416,8 +421,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done"/>
                                             </textField>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="clN-Jc-Zmm">
-                                                <rect key="frame" x="93.666666666666657" y="1.6666666666666625" width="77.666666666666657" height="31.000000000000007"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="clN-Jc-Zmm">
+                                                <rect key="frame" x="93.666666666666657" y="2.9999999999999982" width="77.666666666666657" height="28.333333333333329"/>
                                                 <color key="tintColor" red="0.090196078430000007" green="0.74509803919999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </imageView>
                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mpf-07-rEu">
@@ -453,15 +458,24 @@
                                         <color key="color" name="PrimaryColor"/>
                                     </activityIndicatorView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAG-PM-sCg">
-                                        <rect key="frame" x="140.33333333333334" y="330" width="94.333333333333343" height="50"/>
+                                        <rect key="frame" x="140" y="330" width="95" height="50"/>
+                                        <color key="backgroundColor" name="PrimaryColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="95" id="Fzf-LO-vj9"/>
                                             <constraint firstAttribute="height" constant="50" id="gxE-yp-hWI"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="tintColor" red="0.090196078430000007" green="0.74509803919999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Convertir">
-                                            <color key="baseForegroundColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </buttonConfiguration>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Convertir">
+                                            <color key="titleColor" red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="convertCurrency" destination="lzN-9Z-NGW" eventType="touchUpInside" id="J0h-hN-lta"/>
                                         </connections>
@@ -488,7 +502,7 @@
                             <outletCollection property="gestureRecognizers" destination="fHB-Bi-8hv" appends="YES" id="YOK-7m-s4J"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="dollarsign" catalog="system" id="asx-Nv-HAd"/>
+                    <tabBarItem key="tabBarItem" title="" image="dollarsign.circle" catalog="system" id="asx-Nv-HAd"/>
                     <connections>
                         <outlet property="activityIndicator" destination="yxo-qZ-5GO" id="OfX-aN-as4"/>
                         <outlet property="baseCurrencyAmount" destination="j5h-Na-uZk" id="gjJ-1f-eyk"/>
@@ -530,25 +544,25 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
-        <image name="character.textbox" catalog="system" width="128" height="89"/>
+        <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="cloud.sun.fill" catalog="system" width="128" height="96"/>
-        <image name="dollarsign" catalog="system" width="89" height="128"/>
+        <image name="dollarsign.circle" catalog="system" width="128" height="123"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
+        <image name="text.bubble" catalog="system" width="128" height="110"/>
         <namedColor name="BackgroundColor">
-            <color red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.9649999737739563" green="0.94900000095367432" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryColor">
-            <color red="0.090196078430000007" green="0.74509803919999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.090000003576278687" green="0.74500000476837158" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ReverseTextColor">
-            <color red="0.96470588239999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.9649999737739563" green="0.94900000095367432" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryColor">
-            <color red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.3449999988079071" green="0.3449999988079071" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="TextColor">
-            <color red="0.18039215689999999" green="0.15686274510000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.18000000715255737" green="0.15700000524520874" blue="0.16500000655651093" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

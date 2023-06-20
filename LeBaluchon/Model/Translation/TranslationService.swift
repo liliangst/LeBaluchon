@@ -28,7 +28,13 @@ class TranslationService {
     func fetchTranslationData(source: LangISOCode, target: LangISOCode, text: String, callback: @escaping (Result<TranslationData, TranslationServiceError>) -> Void) {
         var url = translationURL
         
-        url.append(queryItems: [URLQueryItem(name: "key", value: Constants.translationApiKey)])
+        if #available(iOS 16.0, *) {
+            url.append(queryItems: [URLQueryItem(name: "key", value: Constants.translationApiKey)])
+        } else {
+            url = URL(string: url.absoluteString +
+                      "?key=\(Constants.translationApiKey)"
+            )!
+        }
         
         let json: [String: Any] = ["q": text,
                                    "source": source,

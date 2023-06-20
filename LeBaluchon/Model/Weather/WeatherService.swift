@@ -28,10 +28,19 @@ class WeatherService {
     func fetchWeatherData(at location: WeatherLocation, callback: @escaping (Result<WeatherData, WeatherServiceError>) -> Void) {
         var url = weatherURL
         
-        url.append(queryItems: [URLQueryItem(name: "lat", value: String(location.location.coordinate.latitude)),
-                                URLQueryItem(name: "lon", value: String(location.location.coordinate.longitude)),
-                                 URLQueryItem(name: "appid", value: Constants.weatherApiKey),
-                                 URLQueryItem(name: "units", value: "metric")])
+        if #available(iOS 16.0, *) {
+            url.append(queryItems: [URLQueryItem(name: "lat", value: String(location.location.coordinate.latitude)),
+                                    URLQueryItem(name: "lon", value: String(location.location.coordinate.longitude)),
+                                    URLQueryItem(name: "appid", value: Constants.weatherApiKey),
+                                    URLQueryItem(name: "units", value: "metric")])
+        } else {
+            url = URL(string: url.absoluteString +
+                      "?lat=\(location.location.coordinate.latitude)" +
+                      "&lon=\(location.location.coordinate.longitude)" +
+                      "&appid=\(Constants.weatherApiKey)" +
+                      "&units=metric"
+            )!
+        }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
