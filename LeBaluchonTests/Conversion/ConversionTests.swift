@@ -10,6 +10,8 @@ import XCTest
 
 final class ConversionTests: XCTestCase {
 
+    let baseURL = "http://data.fixer.io"
+    
     // MARK: Testing CurrencySymbols class
     func testGettingCurrencySymbolIndex() {
         // Given
@@ -41,8 +43,14 @@ final class ConversionTests: XCTestCase {
     
     // MARK: Testing CurrencyService class
     func testGetCurrencyConverterShouldPostFailedCallbackIfError() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: CurrencyFakeResponseData.error).session)
+        let testPath = "/test/getCurrencyConverterShouldPostFailedCallbackIfError"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: nil, response: nil, error: CurrencyFakeResponseData.error)
         
+        let expectation = XCTestExpectation(description: "Waiting for queue change")
         currencyService.getCurrencyConverter { result in
             switch result {
             case .success(_):
@@ -50,12 +58,20 @@ final class ConversionTests: XCTestCase {
             case .failure(let error):
                 XCTAssertEqual(error, CurrencyServiceError.noData)
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testGetCurrencyConverterShouldPostFailedCallbackIfNoData() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: nil).session)
+        let testPath = "/test/getCurrencyConverterShouldPostFailedCallbackIfNoData"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: nil, response: nil, error: nil)
         
+        let expectation = XCTestExpectation(description: "Waiting for queue change")
         currencyService.getCurrencyConverter { result in
             switch result {
             case .success(_):
@@ -63,12 +79,20 @@ final class ConversionTests: XCTestCase {
             case .failure(let error):
                 XCTAssertEqual(error, CurrencyServiceError.noData)
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testGetCurrencyConverterShouldPostFailedCallbackIfIncorrectResponse() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseNotOk, error: nil).session)
+        let testPath = "/test/getCurrencyConverterShouldPostFailedCallbackIfIncorrectResponse"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseNotOk, error: nil)
         
+        let expectation = XCTestExpectation(description: "Waiting for queue change")
         currencyService.getCurrencyConverter { result in
             switch result {
             case .success(_):
@@ -76,12 +100,20 @@ final class ConversionTests: XCTestCase {
             case .failure(let error):
                 XCTAssertEqual(error, CurrencyServiceError.wrongStatusCode)
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testGetCurrencyConverterShouldPostFailedCallbackIfIncorectData() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyIncorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
+        let testPath = "/test/getCurrencyConverterShouldPostFailedCallbackIfIncorectData"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: CurrencyFakeResponseData.currencyIncorrectData, response: CurrencyFakeResponseData.responseOk, error: nil)
         
+        let expectation = XCTestExpectation(description: "Waiting for queue change")
         currencyService.getCurrencyConverter { result in
             switch result {
             case .success(_):
@@ -89,12 +121,20 @@ final class ConversionTests: XCTestCase {
             case .failure(let error):
                 XCTAssertEqual(error, CurrencyServiceError.decodingError)
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testGetCurrencyConverterShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
+        let testPath = "/test/getCurrencyConverterShouldPostSuccessCallbackIfNoErrorAndCorrectData"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil)
         
+        let expectation = XCTestExpectation(description: "Waiting for queue change")
         currencyService.getCurrencyConverter { result in
             switch result {
             case .success(let currencyConverter):
@@ -102,12 +142,20 @@ final class ConversionTests: XCTestCase {
             case .failure(let error):
                 XCTFail("Error this should success: \(error.self) - \(error.localizedDescription)")
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testCurrencyConversionShouldSuccessBetweenAUDandUSD() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
+        let testPath = "/test/currencyConversionShouldSuccessBetweenAUDandUSD"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
 
+        MockURLProtocol.mockURLs[testPath] = (data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil)
+        
+        let expectation = XCTestExpectation(description: "Waiting for queue change")
         currencyService.getCurrencyConverter{ result in
             switch result {
             case .success(let currencyConverter):
@@ -115,12 +163,20 @@ final class ConversionTests: XCTestCase {
             case .failure(let error):
                 XCTFail("Error this should success: \(error.self) - \(error.localizedDescription)")
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testCurrencyConversionShouldSuccessBetweenEURandUSD() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
+        let testPath = "/test/currencyConversionShouldSuccessBetweenEURandUSD"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
 
+        MockURLProtocol.mockURLs[testPath] = (data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil)
+        
+        let expectation = XCTestExpectation(description: "Waiting for queue change")
         currencyService.getCurrencyConverter{ result in
             switch result {
             case .success(let currencyConverter):
@@ -128,12 +184,20 @@ final class ConversionTests: XCTestCase {
             case .failure(let error):
                 XCTFail("Error this should success: \(error.self) - \(error.localizedDescription)")
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testCurrencyConversionShouldFailBetweenUnlistedBaseandUSD() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
+        let testPath = "/test/currencyConversionShouldFailBetweenUnlistedBaseandUSD"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
 
+        MockURLProtocol.mockURLs[testPath] = (data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil)
+        
+        let expectation = XCTestExpectation(description: "Waiting for queue change")
         currencyService.getCurrencyConverter{ result in
             switch result {
             case .success(let currencyConverter):
@@ -141,12 +205,20 @@ final class ConversionTests: XCTestCase {
             case .failure(let error):
                 XCTFail("Error this should success: \(error.self) - \(error.localizedDescription)")
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testCurrencyConversionShouldFailBetweenAUDandUnlistedTarget() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
+        let testPath = "/test/currencyConversionShouldFailBetweenAUDandUnlistedTarget"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
 
+        MockURLProtocol.mockURLs[testPath] = (data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil)
+        
+        let expectation = XCTestExpectation(description: "Waiting for queue change")
         currencyService.getCurrencyConverter{ result in
             switch result {
             case .success(let currencyConverter):
@@ -154,12 +226,20 @@ final class ConversionTests: XCTestCase {
             case .failure(let error):
                 XCTFail("Error this should success: \(error.self) - \(error.localizedDescription)")
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testCurrencyConversionShouldFailBetweenEURandUnlistedTarget() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
+        let testPath = "/test/currencyConversionShouldFailBetweenEURandUnlistedTarget"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
 
+        MockURLProtocol.mockURLs[testPath] = (data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil)
+        
+        let expectation = XCTestExpectation(description: "Waiting for queue change")
         currencyService.getCurrencyConverter{ result in
             switch result {
             case .success(let currencyConverter):
@@ -167,12 +247,19 @@ final class ConversionTests: XCTestCase {
             case .failure(let error):
                 XCTFail("Error this should success: \(error.self) - \(error.localizedDescription)")
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     // MARK: Test getCurrencyConverter with async await
     func testGetCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfError() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: CurrencyFakeResponseData.error).session)
+        let testPath = "/test/getCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfError"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: nil, response: nil, error: CurrencyFakeResponseData.error)
         
         Task.init {
             do {
@@ -185,7 +272,12 @@ final class ConversionTests: XCTestCase {
     }
     
     func testGetCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfNoData() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: nil).session)
+        let testPath = "/test/getCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfNoData"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: nil, response: nil, error: nil)
         
         Task.init {
             do {
@@ -198,7 +290,12 @@ final class ConversionTests: XCTestCase {
     }
     
     func testGetCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfIncorrectResponse() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseNotOk, error: nil).session)
+        let testPath = "/test/getCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfIncorrectResponse"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseNotOk, error: nil)
         
         Task.init {
             do {
@@ -211,7 +308,12 @@ final class ConversionTests: XCTestCase {
     }
     
     func testGetCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfIncorectData() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyIncorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
+        let testPath = "/test/getCurrencyConverterAsyncAwaitShouldPostFailedCallbackIfIncorectData"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: CurrencyFakeResponseData.currencyIncorrectData, response: CurrencyFakeResponseData.responseOk, error: nil)
         
         Task.init {
             do {
@@ -224,7 +326,13 @@ final class ConversionTests: XCTestCase {
     }
     
     func testGetCurrencyConverterAsyncAwaitShouldSuccess() {
-        let currencyService = CurrencyService(session: URLSessionFake(data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil).session)
+        let testPath = "/test/getCurrencyConverterAsyncAwaitShouldSuccess"
+        let testURL = URL(string: baseURL + testPath)!
+        let currencyService = CurrencyService(
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: CurrencyFakeResponseData.currencyCorrectData, response: CurrencyFakeResponseData.responseOk, error: nil)
+        
         Task.init {
             do {
                 let converter = try await currencyService.getCurrencyConverter()
@@ -234,6 +342,4 @@ final class ConversionTests: XCTestCase {
             }
         }
     }
-    
-    
 }

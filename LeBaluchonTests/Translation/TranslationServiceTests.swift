@@ -12,9 +12,15 @@ final class TranslationServiceTests: XCTestCase {
     
     let testText = "This is a translation test"
     
+    let baseURL = "https://translation.googleapis.com"
+    
     func testFetchTranslationDataShouldPostFailedCallbackIfError() {
+        let testPath = "/test/fetchTranslationDataShouldPostFailedCallbackIfError"
+        let testURL = URL(string: baseURL + testPath)!
         let translationService = TranslationService(
-            session: URLSessionFake(data: nil, response: nil, error: TranslationFakeResponseData.error).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
+        
+        MockURLProtocol.mockURLs[testPath] = (data: nil, response: nil, error: TranslationFakeResponseData.error)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         translationService.fetchTranslationData(source: "en", target: "fr", text: testText) { result in
@@ -26,11 +32,16 @@ final class TranslationServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testFetchTranslationDataShouldPostFailedCallbackIfNoData() {
+        let testPath = "/test/fetchTranslationDataShouldPostFailedCallbackIfNoData"
+        let testURL = URL(string: baseURL + testPath)!
         let translationService = TranslationService(
-            session: URLSessionFake(data: nil, response: nil, error: nil).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
+        
+        MockURLProtocol.mockURLs[testPath] = (data: nil, response: nil, error: nil)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         translationService.fetchTranslationData(source: "en", target: "fr", text: testText) { result in
@@ -42,11 +53,16 @@ final class TranslationServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testFetchTranslationDataShouldPostFailedCallbackIfIncorrectResponse() {
+        let testPath = "/test/fetchTranslationDataShouldPostFailedCallbackIfIncorrectResponse"
+        let testURL = URL(string: baseURL + testPath)!
         let translationService = TranslationService(
-            session: URLSessionFake(data: TranslationFakeResponseData.translationCorrectData, response: TranslationFakeResponseData.responseNotOk, error: nil).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
+        
+        MockURLProtocol.mockURLs[testPath] = (data: TranslationFakeResponseData.translationCorrectData, response: TranslationFakeResponseData.responseNotOk, error: nil)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         translationService.fetchTranslationData(source: "en", target: "fr", text: testText) { result in
@@ -58,11 +74,16 @@ final class TranslationServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testFetchTranslationDataShouldPostFailedCallbackIfIncorectData() {
+        let testPath = "/test/fetchTranslationDataShouldPostFailedCallbackIfIncorectData"
+        let testURL = URL(string: baseURL + testPath)!
         let translationService = TranslationService(
-            session: URLSessionFake(data: TranslationFakeResponseData.translationIncorrectData, response: TranslationFakeResponseData.responseOk, error: nil).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
+        
+        MockURLProtocol.mockURLs[testPath] = (data: TranslationFakeResponseData.translationIncorrectData, response: TranslationFakeResponseData.responseOk, error: nil)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         translationService.fetchTranslationData(source: "en", target: "fr", text: testText) { result in
@@ -74,11 +95,16 @@ final class TranslationServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
-    func testfetchTranslationDataShouldSuccess() {
+    func testFetchTranslationDataShouldSuccess() {
+        let testPath = "/test/fetchTranslationDataShouldSuccess"
+        let testURL = URL(string: baseURL + testPath)!
         let translationService = TranslationService(
-            session: URLSessionFake(data: TranslationFakeResponseData.translationCorrectData, response: TranslationFakeResponseData.responseOk, error: nil).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
+        
+        MockURLProtocol.mockURLs[testPath] = (data: TranslationFakeResponseData.translationCorrectData, response: TranslationFakeResponseData.responseOk, error: nil)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         translationService.fetchTranslationData(source: "en", target: "fr", text: testText) { result in
@@ -90,5 +116,6 @@ final class TranslationServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
+        wait(for: [expectation])
     }
 }

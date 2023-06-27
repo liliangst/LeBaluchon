@@ -15,12 +15,13 @@ class CurrencyService {
     static var shared = CurrencyService()
     private init() {}
     
-    private let currencyURL = URL(string: "http://data.fixer.io/api/latest")!
+    private var currencyURL = URL(string: "http://data.fixer.io/api/latest")!
     private var session = URLSession(configuration: .default)
     var task: URLSessionDataTask?
     
-    init(session: URLSession) {
+    init(session: URLSession, url: URL) {
         self.session = session
+        self.currencyURL = url
     }
     
     func getCurrencyConverter(callback: @escaping (Result<CurrencyConverter, CurrencyServiceError>) -> Void) {
@@ -39,7 +40,7 @@ class CurrencyService {
         task?.cancel()
         task = session.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
-                guard let data = data, error == nil else {
+                guard let data = data, !data.isEmpty, error == nil else {
                     callback(.failure(.noData))
                     return
                 }
@@ -72,15 +73,15 @@ class CurrencyService {
         return try await withCheckedThrowingContinuation { continuation in
             task = session.dataTask(with: request) { data, response, error in
                 DispatchQueue.main.async {
-                    guard let data1 = data, error == nil else {
+                    guard let data = data, error == nil else {
                         continuation.resume(throwing: CurrencyServiceError.noData)
                         return
                     }
-                    guard let response1 = response as? HTTPURLResponse, response1.statusCode == 200 else {
+                    guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                         continuation.resume(throwing: CurrencyServiceError.wrongStatusCode)
                         return
                     }
-                    guard let converter = try? JSONDecoder().decode(CurrencyConverter.self, from: data1) else {
+                    guard let converter = try? JSONDecoder().decode(CurrencyConverter.self, from: data) else {
                         continuation.resume(throwing: CurrencyServiceError.decodingError)
                         return
                     }

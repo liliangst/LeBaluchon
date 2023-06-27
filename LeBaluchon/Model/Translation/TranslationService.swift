@@ -17,12 +17,13 @@ class TranslationService {
     
     typealias LangISOCode = String
     
-    private let translationURL = URL(string: "https://translation.googleapis.com/language/translate/v2")!
+    private var translationURL = URL(string: "https://translation.googleapis.com/language/translate/v2")!
     private var session = URLSession(configuration: .default)
     var task: URLSessionDataTask?
     
-    init(session: URLSession) {
+    init(session: URLSession, url: URL) {
         self.session = session
+        self.translationURL = url
     }
     
     func fetchTranslationData(source: LangISOCode, target: LangISOCode, text: String, callback: @escaping (Result<TranslationData, TranslationServiceError>) -> Void) {
@@ -51,7 +52,7 @@ class TranslationService {
         task?.cancel()
         task = session.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
-                guard let data = data, error == nil else {
+                guard let data = data, !data.isEmpty, error == nil else {
                     callback(.failure(.noData))
                     return
                 }

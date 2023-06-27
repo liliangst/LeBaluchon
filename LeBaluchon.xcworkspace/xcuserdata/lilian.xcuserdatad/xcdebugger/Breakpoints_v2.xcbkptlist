@@ -3,4 +3,54 @@
    uuid = "3E2153B7-5857-4347-A290-F05FB4D25367"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4DEAFDC-AC2A-4C21-99F8-32BA96500210"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeBaluchonTests/URLSessionFake.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "MockURLProtocol"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E4DEAFDC-AC2A-4C21-99F8-32BA96500210 - fd5fdeaeae72815d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LeBaluchonTests.MockURLProtocol.startLoading() -&gt; ()"
+                  moduleName = "LeBaluchonTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lilian/Desktop/OPENCLASSROOM/9/LeBaluchon/LeBaluchonTests/URLSessionFake.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "652">
+               </Location>
+               <Location
+                  uuid = "E4DEAFDC-AC2A-4C21-99F8-32BA96500210 - fd5fdeaeae72815d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LeBaluchonTests.MockURLProtocol.startLoading() -&gt; ()"
+                  moduleName = "LeBaluchonTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lilian/Desktop/OPENCLASSROOM/9/LeBaluchon/LeBaluchonTests/URLSessionFake.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "1276">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

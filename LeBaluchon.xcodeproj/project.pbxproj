@@ -41,7 +41,7 @@
 		38E7897D2A28D0C5003C8A57 /* MoneyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7897C2A28D0C5003C8A57 /* MoneyFormatterTests.swift */; };
 		38E789802A28D761003C8A57 /* Rates.json in Resources */ = {isa = PBXBuildFile; fileRef = 38E7897F2A28D761003C8A57 /* Rates.json */; };
 		38E789822A28E45E003C8A57 /* CurrencyFakeResponeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E789812A28E45E003C8A57 /* CurrencyFakeResponeData.swift */; };
-		38E789842A28E6A4003C8A57 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E789832A28E6A4003C8A57 /* URLSessionFake.swift */; };
+		38E789842A28E6A4003C8A57 /* URLSessionFakeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E789832A28E6A4003C8A57 /* URLSessionFakeBuilder.swift */; };
 		6747A461BCC1B98CD415670D /* Pods_LeBaluchon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363B41954987C8652969D9EE /* Pods_LeBaluchon.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,7 +94,7 @@
 		38E7897C2A28D0C5003C8A57 /* MoneyFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyFormatterTests.swift; sourceTree = "<group>"; };
 		38E7897F2A28D761003C8A57 /* Rates.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rates.json; sourceTree = "<group>"; };
 		38E789812A28E45E003C8A57 /* CurrencyFakeResponeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFakeResponeData.swift; sourceTree = "<group>"; };
-		38E789832A28E6A4003C8A57 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
+		38E789832A28E6A4003C8A57 /* URLSessionFakeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFakeBuilder.swift; sourceTree = "<group>"; };
 		D649B80AA59DA7E6C487BFB6 /* Pods-LeBaluchon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchon.debug.xcconfig"; path = "Target Support Files/Pods-LeBaluchon/Pods-LeBaluchon.debug.xcconfig"; sourceTree = "<group>"; };
 		E6C76C581FDB5FF840EDA7D5 /* Pods-LeBaluchonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeBaluchonTests.release.xcconfig"; path = "Target Support Files/Pods-LeBaluchonTests/Pods-LeBaluchonTests.release.xcconfig"; sourceTree = "<group>"; };
 		ECF9E793913601AE19AE5594 /* Pods_LeBaluchonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeBaluchonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,7 +205,7 @@
 		38E789022A1F97F9003C8A57 /* LeBaluchonTests */ = {
 			isa = PBXGroup;
 			children = (
-				38E789832A28E6A4003C8A57 /* URLSessionFake.swift */,
+				38E789832A28E6A4003C8A57 /* URLSessionFakeBuilder.swift */,
 				38E7897E2A28D73B003C8A57 /* Conversion */,
 				38D2A4DA2A30BA7C0093115C /* Weather */,
 				38AA6FDB2A3C696600121479 /* Translation */,
@@ -494,7 +494,7 @@
 			files = (
 				38E789822A28E45E003C8A57 /* CurrencyFakeResponeData.swift in Sources */,
 				38AA6FDF2A3C69BE00121479 /* TranslationFakeResponseData.swift in Sources */,
-				38E789842A28E6A4003C8A57 /* URLSessionFake.swift in Sources */,
+				38E789842A28E6A4003C8A57 /* URLSessionFakeBuilder.swift in Sources */,
 				38AA6FCB2A3320A200121479 /* WeatherIconTests.swift in Sources */,
 				3811BDF12A409D6700639125 /* SettingTests.swift in Sources */,
 				38AA6FE32A3C6A4F00121479 /* TranslationServiceTests.swift in Sources */,
@@ -733,7 +733,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VZ899C4D4A;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liliangrasset.LeBaluchonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -754,7 +754,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VZ899C4D4A;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liliangrasset.LeBaluchonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

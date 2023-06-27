@@ -16,12 +16,13 @@ class WeatherService {
     static var shared = WeatherService()
     private init() {}
     
-    private let weatherURL = URL(string: "https://api.openweathermap.org/data/2.5/weather")!
+    private var weatherURL = URL(string: "https://api.openweathermap.org/data/2.5/weather")!
     private var session = URLSession(configuration: .default)
     var task: URLSessionDataTask?
     
-    init(session: URLSession) {
+    init(session: URLSession, url: URL) {
         self.session = session
+        self.weatherURL = url
     }
     
     @available(*, renamed: "fetchWeatherData(at:)")
@@ -48,7 +49,7 @@ class WeatherService {
         task?.cancel()
         task = session.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
-                guard let data = data, error == nil else {
+                guard let data = data, !data.isEmpty, error == nil else {
                     callback(.failure(.noData))
                     return
                 }

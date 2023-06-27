@@ -11,10 +11,16 @@ import CoreLocation
 
 final class WeatherServiceTests: XCTestCase {
     
+    let baseURL = "https://api.openweathermap.org"
+    
     // MARK: Testing WeatherService class
     func testFetchWeatherDataShouldPostFailedCallbackIfError() {
+        let testPath = "/test/fetchWeatherDataShouldPostFailedCallbackIfError"
+        let testURL = URL(string: baseURL + testPath)!
         let weatherService = WeatherService(
-            session: URLSessionFake(data: nil, response: nil, error: WeatherFakeResponseData.error).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: nil, response: nil, error: WeatherFakeResponseData.error)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchWeatherData(at: .newYork) { result in
@@ -26,11 +32,16 @@ final class WeatherServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testFetchWeatherDataShouldPostFailedCallbackIfNoData() {
+        let testPath = "/test/fetchWeatherDataShouldPostFailedCallbackIfNoData"
+        let testURL = URL(string: baseURL + testPath)!
         let weatherService = WeatherService(
-            session: URLSessionFake(data: nil, response: nil, error: nil).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: nil, response: nil, error: nil)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchWeatherData(at: .local) { result in
@@ -42,11 +53,16 @@ final class WeatherServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testFetchWeatherDataShouldPostFailedCallbackIfIncorrectResponse() {
+        let testPath = "/test/fetchWeatherDataShouldPostFailedCallbackIfIncorrectResponse"
+        let testURL = URL(string: baseURL + testPath)!
         let weatherService = WeatherService(
-            session: URLSessionFake(data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseNotOk, error: nil).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseNotOk, error: nil)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchWeatherData(at: .newYork) { result in
@@ -58,11 +74,16 @@ final class WeatherServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testFetchWeatherDataShouldPostFailedCallbackIfIncorectData() {
+        let testPath = "/test/fetchWeatherDataShouldPostFailedCallbackIfIncorectData"
+        let testURL = URL(string: baseURL + testPath)!
         let weatherService = WeatherService(
-            session: URLSessionFake(data: WeatherFakeResponseData.weatherIncorrectData, response: WeatherFakeResponseData.responseOk, error: nil).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: WeatherFakeResponseData.weatherIncorrectData, response: WeatherFakeResponseData.responseOk, error: nil)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchWeatherData(at: .local)  { result in
@@ -74,11 +95,16 @@ final class WeatherServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
-    func testfetchWeatherDataShouldSuccess() {
+    func testFetchWeatherDataShouldSuccess() {
+        let testPath = "/test/fetchWeatherDataShouldSuccess"
+        let testURL = URL(string: baseURL + testPath)!
         let weatherService = WeatherService(
-            session: URLSessionFake(data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseOk, error: nil).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseOk, error: nil)
         
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchWeatherData(at: .newYork) { result in
@@ -94,9 +120,13 @@ final class WeatherServiceTests: XCTestCase {
         }
     }
     
-    func testfetchWeatherDataAsyncShouldSuccess() {
+    func testFetchWeatherDataAsyncShouldSuccess() {
+        let testPath = "/test/fetchWeatherDataAsyncShouldSuccess"
+        let testURL = URL(string: baseURL + testPath)!
         let weatherService = WeatherService(
-            session: URLSessionFake(data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseOk, error: nil).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
+
+        MockURLProtocol.mockURLs[testPath] = (data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseOk, error: nil)
         
         Task.init {
             do {
@@ -111,9 +141,13 @@ final class WeatherServiceTests: XCTestCase {
     }
     
     func testFetchBothWeatherDataShouldSuccess() {
+        let testPath = "/test/fetchBothWeatherDataShouldSuccess"
+        let testURL = URL(string: baseURL + testPath)!
         let weatherService = WeatherService(
-            session: URLSessionFake(data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseOk, error: nil).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
 
+        MockURLProtocol.mockURLs[testPath] = (data: WeatherFakeResponseData.nyWeatherCorrectData, response: WeatherFakeResponseData.responseOk, error: nil)
+        
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchBothWeatherData(at: .newYork, and: .newYork) { result in
             switch result {
@@ -127,29 +161,32 @@ final class WeatherServiceTests: XCTestCase {
                 XCTAssertEqual(nySecondWeatherData.name, "New York")
                 XCTAssertEqual(nySecondWeatherData.temperature, 14)
                 XCTAssertEqual(nySecondWeatherData.icon, "cloud.fog")
-                
-                expectation.fulfill()
             case .failure(let error):
                 XCTFail("Fetching both weather data should success but there is an error: \(error.self), \(error.localizedDescription)")
-                expectation.fulfill()
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation])
     }
     
     func testFetchBothWeatherDataShouldFail() {
+        let testPath = "/test/fetchBothWeatherDataShouldFail"
+        let testURL = URL(string: baseURL + testPath)!
         let weatherService = WeatherService(
-            session: URLSessionFake(data: nil, response: nil, error: WeatherFakeResponseData.error).session)
+            session: URLSessionFakeBuilder().session, url: testURL)
 
+        MockURLProtocol.mockURLs[testPath] = (data: nil, response: nil, error: WeatherFakeResponseData.error)
+        
         let expectation = XCTestExpectation(description: "Waiting for queue change")
         weatherService.fetchBothWeatherData(at: .newYork, and: .newYork) { result in
             switch result {
             case .success(_):
                 XCTFail("Fetching both weather data should fail but succeeded.")
-                expectation.fulfill()
             case .failure(let error):
                 XCTAssertEqual(error, .noData)
-                expectation.fulfill()
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation])
     }
 }
