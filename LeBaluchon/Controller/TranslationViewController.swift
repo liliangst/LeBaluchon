@@ -28,6 +28,7 @@ class TranslationViewController: UIViewController {
     @IBOutlet weak var translateButton: UIButton! {
         didSet {
             translateButton.isEnabled = false
+            translateButton.layer.opacity = 0.5
         }
     }
     @IBOutlet weak var translationActivityIndicator: UIActivityIndicatorView! {
@@ -72,9 +73,11 @@ extension TranslationViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         guard let text = textView.text, !text.isEmpty else {
             translateButton.isEnabled = false
+            translateButton.layer.opacity = 0.5
             return
         }
         translateButton.isEnabled = true
+        translateButton.layer.opacity = 1
     }
 }
 

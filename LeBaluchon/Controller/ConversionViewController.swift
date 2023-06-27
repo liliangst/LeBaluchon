@@ -17,6 +17,7 @@ class ConversionViewController: UIViewController {
         didSet {
             convertButton.isEnabled = false
             convertButton.isHidden = true
+            convertButton.layer.opacity = 0.5
         }
     }
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
@@ -122,9 +123,11 @@ extension ConversionViewController: UITextFieldDelegate {
         let text = (textFieldText as NSString).replacingCharacters(in: range, with: string)
         
         if text.isEmpty {
+            convertButton.layer.opacity = 0.5
             convertButton.isEnabled = false
             targetCurrencyAmount.text = ""
         } else {
+            convertButton.layer.opacity = 1
             convertButton.isEnabled = true
         }
         
